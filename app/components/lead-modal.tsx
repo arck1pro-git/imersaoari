@@ -5,7 +5,7 @@ const API = process.env.NEXT_PUBLIC_SPRINTHUB_HOOK_URL!;
 
 export default function LeadModal() {
   const [open, setOpen] = useState(false);
-  const [form, setForm] = useState({ nome: "", sobrenome: "", email: "", whatsapp: "" });
+  const [form, setForm] = useState({ nome: "", email: "", whatsapp: "" });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
@@ -20,7 +20,7 @@ export default function LeadModal() {
     setOpen(false);
     setSuccess(false);
     setError(false);
-    setForm({ nome: "", sobrenome: "", email: "", whatsapp: "" });
+    setForm({ nome: "", email: "", whatsapp: "" });
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -28,12 +28,12 @@ export default function LeadModal() {
     setLoading(true);
     setError(false);
     const phone = form.whatsapp.replace(/\D/g, "");
-    const params = new URLSearchParams({ ...form, whatsapp: phone });
+    const params = new URLSearchParams({ nome: form.nome, email: form.email, whatsapp: phone });
     try {
       await fetch(`${API}&${params.toString()}`, { method: "POST" });
       const hotmart = new URL("https://pay.hotmart.com/X105745330Y");
       hotmart.searchParams.set("bid", "1778252969085");
-      hotmart.searchParams.set("name", `${form.nome} ${form.sobrenome}`);
+      hotmart.searchParams.set("name", form.nome);
       hotmart.searchParams.set("email", form.email);
       hotmart.searchParams.set("phone", phone);
       window.location.href = hotmart.toString();
@@ -76,32 +76,22 @@ export default function LeadModal() {
               </div>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="text-gray-400 text-xs uppercase tracking-wider mb-1.5 block">Nome</label>
-                    <input
-                      required
-                      value={form.nome}
-                      onChange={e => setForm(f => ({ ...f, nome: e.target.value }))}
-                      className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-600 transition-colors"
-                      placeholder="João"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-gray-400 text-xs uppercase tracking-wider mb-1.5 block">Sobrenome</label>
-                    <input
-                      required
-                      value={form.sobrenome}
-                      onChange={e => setForm(f => ({ ...f, sobrenome: e.target.value }))}
-                      className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-600 transition-colors"
-                      placeholder="Silva"
-                    />
-                  </div>
+                <div>
+                  <label className="text-gray-400 text-xs uppercase tracking-wider mb-1.5 block">Nome completo</label>
+                  <input
+                    required
+                    name="nome"
+                    value={form.nome}
+                    onChange={e => setForm(f => ({ ...f, nome: e.target.value }))}
+                    className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-600 transition-colors"
+                    placeholder="João Silva"
+                  />
                 </div>
                 <div>
                   <label className="text-gray-400 text-xs uppercase tracking-wider mb-1.5 block">E-mail</label>
                   <input
                     required
+                    name="email"
                     type="email"
                     value={form.email}
                     onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
@@ -113,7 +103,9 @@ export default function LeadModal() {
                   <label className="text-gray-400 text-xs uppercase tracking-wider mb-1.5 block">WhatsApp</label>
                   <input
                     required
+                    name="whatsapp"
                     type="tel"
+                    maxLength={12}
                     value={form.whatsapp}
                     onChange={e => setForm(f => ({ ...f, whatsapp: e.target.value }))}
                     className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-600 transition-colors"
