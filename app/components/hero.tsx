@@ -1,0 +1,66 @@
+import ModalTrigger from "./modal-trigger";
+
+export default function Hero() {
+  return (
+    <section className="relative min-h-screen overflow-hidden flex flex-col lg:pt-24">
+
+      {/* Imagem de fundo — apenas desktop */}
+      <div className="absolute inset-0 z-0 hidden sm:block">
+        <img src="/hero.png" alt="" className="absolute top-0 right-[-40px] h-full w-auto" />
+        <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to right, #000000 30%, rgba(0,0,0,0.6) 55%, rgba(0,0,0,0.1) 75%, transparent 100%)" }} />
+      </div>
+
+      {/* Countdown */}
+      <div id="countdown-container" className="text-white py-1 px-4 font-bold text-sm tracking-widest uppercase fixed top-0 left-0 right-0 z-50" style={{ background: "#000000" }}>
+        <div className="max-w-7xl mx-auto flex flex-col items-center gap-1">
+          <div className="lg:text-2xl flex items-center justify-center gap-4">
+            <div className=" p-1 text-center">
+              <div className=" font-bold"> <span id="countdown-days" className="text-red-500">00</span> DIAS</div>
+            </div>
+            <div className=" p-1 text-center">
+              <span className="text-red-500 font-bold" id="countdown-hours">00</span> H
+            </div>
+            <div className=" p-1 text-center">
+              <span className="text-red-500 font-bold" id="countdown-minutes">00</span> MIN
+            </div>
+            <div className=" p-1 text-center">
+              <span className="text-red-500 font-bold" id="countdown-seconds">00</span> SEG
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Imagem acima do conteúdo — apenas mobile */}
+      <div className="block lg:hidden w-full relative z-10">
+        <img src="/hero.png" alt="" className="w-full h-72 object-cover object-top" />
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-black" />
+      </div>
+
+      {/* Conteúdo */}
+      <div className="relative z-10 flex flex-1 items-center max-w-7xl mx-auto px-8 py-10 sm:py-20 w-full">
+        <div className="w-full max-w-xl text-center sm:text-left mx-auto sm:mx-0">
+          <span className="inline-block border border-zinc-900 rounded-full text-white/20 text-xs tracking-widest uppercase px-4 py-1 mb-6 font-semibold">
+            Imersão Online Exclusiva | Vagas Limitadas
+          </span>
+          <h1 className="text-white font-cormorant text-6xl sm:text-8xl font-light leading-tight mb-2">
+            IMERSÃO<br />
+            <span className="gradient-text font-bold">ARI</span>
+          </h1>
+          <p className="gradient-text text-xl font-semibold leading-snug mb-4 mt-6">
+            3 dias online para você aprender o método que dobra patrimônio em 3 anos com a solidez do mercado imobiliário catarinense.
+          </p>
+          <p className="text-gray-300 text-sm leading-relaxed mb-8">
+            Entre os dias 26, 27 e 28 de maio, eu vou revelar o sistema completo de investimento em incorporação imobiliária que já multiplicou o capital de dezenas de investidores. O mesmo método que transforma R$ 50 mil em R$ 100 mil em 36 meses, com remuneração mensal e isenção de IR.
+          </p>
+          <ModalTrigger className="button text-black font-bold uppercase tracking-widest px-10 py-4 text-sm block sm:inline-block text-center">
+            QUERO GARANTIR MINHA VAGA
+          </ModalTrigger>
+          <p className="gradient-text text-xs mt-4">
+            Investimento: R$ [X,XX] — <span className="underline">Condição especial para a nova turma</span>
+          </p>
+        </div>
+      </div>
+
+    </section>
+  );
+}

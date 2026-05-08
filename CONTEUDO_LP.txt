@@ -1,0 +1,477 @@
+================================================================================
+                         CONTEÚDO DA LANDING PAGE
+                          ESTRUTURA E HIERARQUIA
+================================================================================
+
+HERO SECTION
+============
+
+  Badge / Subtítulo:
+    Treinamento
+
+  Título Principal (H1):
+    IMERSÃO
+    ARI
+
+  Subtítulo / Descrição Principal:
+    O método que transforma empresário comum em máquina de vendas previsível
+    agora numa única noite, ao vivo comigo.
+
+  Parágrafo Adicional:
+    Em 18 de maio, eu vou abrir a caixa preta dos 6 pilares que uso nas
+    minhas próprias empresas para vender high ticket com margem, processo e
+    previsibilidade. O mesmo método que já formou mais de 4.500 empresários
+    no Clube de Venda.
+
+  CTA (Call to Action):
+    EU QUERO O MAPA DA VENDA
+
+  Preço / Oferta:
+    Acesso por R$ 97 à vista ou 12x de R$ 9,34 — Vagas limitadas
+
+  Alerta Superior:
+    18 DE MAIO ; 20H ; AO VIVO E ONLINE ; VAGAS LIMITADAS
+
+
+PROBLEM SECTION
+===============
+
+  Título Principal (H2):
+    A maioria dos empresários não vende.
+
+  Subtítulo (H3):
+    Eles atendem.
+
+  Chamada de Atenção:
+    Para. Lê isso de novo.
+
+  Corpo do Texto:
+    - A maioria dos empresários no Brasil hoje não está vendendo. Está atendendo.
+    - Quando vem cliente, ele responde. Quando o cliente some, ele desconta.
+      Quando o concorrente cobra menos, ele se desespera.
+    - Isso não é vender. Isso é torcer.
+    - E eu vou te dizer uma coisa que talvez te incomode: o problema não é o
+      seu produto. Não é o seu mercado. Não é a economia.
+    - O problema é a estrutura por trás da sua venda.
+    - E é exatamente isso que eu vou desmontar com você no dia 18 de maio.
+
+  Seção 2 - Título (H2):
+    Você não tem um problema de produto.
+
+  Seção 2 - Subtítulo (H3):
+    Você tem um problema de estrutura.
+
+  Seção 2 - Corpo do Texto:
+    - Eu converso com empresário todos os dias. E vejo o mesmo padrão se repetindo.
+    - Empresário bom, com produto bom, com operação rodando — disputando preço
+      com concorrente medíocre.
+    - Especialista referência no que faz — fechando 2 em cada 10 propostas e
+      tendo que dar desconto pra fechar até essas duas.
+
+
+TREINAMENTO SECTION
+===================
+
+  Título Principal (H2):
+    O que é o Treinamento O Mapa da Venda
+
+  Corpo do Texto:
+    - O Mapa da Venda é um encontro online de 2 horas, no dia 18 de maio às 20h,
+      ao vivo comigo, onde eu vou te entregar, passo a passo, o método que eu
+      uso nas minhas próprias empresas pra vender high ticket com previsibilidade.
+    - Não é uma palestra motivacional. Não é aula gratuita disfarçada de venda.
+    - É uma masterclass técnica, com Q&A ao vivo no final, onde eu vou abrir os
+      6 pilares que sustentam toda venda high ticket consistente.
+    - Eu chamei de O Mapa da Venda porque é exatamente isso: um mapa. Um caminho
+      claro, com começo, meio e fim, que você pode seguir já no dia seguinte na
+      sua empresa.
+
+
+PILARES SECTION
+===============
+
+  Título Principal (H2):
+    No dia 18 de maio, eu vou abrir os 6 pilares que sustentam toda venda
+    high ticket consistente.
+
+  Subtítulo / Descrição:
+    Esses são os mesmos 6 pilares que eu uso nas minhas empresas todos os dias.
+    Não são teoria. São prática.
+
+  PILAR 1 - Título:
+    Pilar 1 — Prospecção e Atendimento de Alto Nível
+
+  PILAR 1 - Pergunta Provocativa:
+    Você ainda atende cliente do mesmo jeito que atendia há 5 anos?
+
+  PILAR 1 - Descrição:
+    Eu vou te mostrar como atrair clientes qualificados todos os dias e
+    conduzir atendimentos que te posicionam como autoridade — não como mais um
+    vendedor. Você para de competir com vendedor mediano e passa a ser procurado.
+
+  PILAR 2 - Título:
+    Pilar 2 — Quebra de Objeções e Negociação
+
+  PILAR 2 - Pergunta Provocativa:
+    Quantas vendas você perdeu esse mês porque não soube responder uma única
+    objeção?
+
+  PILAR 2 - Descrição:
+    Eu vou te ensinar a destravar negociações travadas, eliminar resistências e
+    conduzir conversas que terminam em fechamento. Sem empurrão. Sem pressão.
+    Sem desconto.
+
+  PILAR 3 - Título:
+    Pilar 3 — Elevação de Preços e Expansão de Margem
+
+  PILAR 3 - Pergunta Provocativa:
+    Você cobra o que merece, ou você cobra o que o concorrente deixa?
+
+  PILAR 3 - Descrição:
+    Eu vou te mostrar como comunicar valor da forma certa pra cobrar mais e sair
+    da guerra de preço sem perder vendas. Quem tem método, sai do jogo de preço.
+    Quem não tem, fica refém.
+
+  PILAR 4 - Título:
+    Pilar 4 — Posicionamento de Imagem e Conexão
+
+  PILAR 4 - Pergunta Provocativa:
+    Você é referência no seu mercado, ou só mais um?
+
+  PILAR 4 - Descrição:
+    Eu vou te ensinar a construir uma imagem forte que atrai cliente ideal —
+    aquele que chega já querendo comprar de você, e não pesquisando preço.
+
+
+EVENTO SECTION
+==============
+
+  Título Principal (H2):
+    Como vai ser o Encontro do dia 18 de Maio.
+
+  Detalhes do Evento (com emojis):
+    📅 18 de maio, segunda-feira, às 20h (horário de Brasília)
+    💻 Ao vivo no Zoom — link enviado por e-mail e WhatsApp horas antes do início
+    ⏱ 2 horas de masterclass + Q&A ao vivo no final
+    🎙 Você vai poder me fazer perguntas em tempo real
+    ⚠ SEM REPLAY — É ao vivo ou nada. Quem está, está. Quem perdeu, perdeu.
+
+
+PREÇO SECTION
+=============
+
+  Introdução:
+    Esse é o tipo de encontro que eu não repito. Não é live mensal. Não é série
+    de aulas. É uma noite. Uma vez.
+
+  CTA (Call to Action):
+    EU QUERO O MAPA DA VENDA
+
+  Label:
+    O preço cheio do Treinamento
+
+  Título da Oferta (H2):
+    O MAPA
+    DA VENDA
+
+  Preço Original:
+    É R$697.
+
+  Informação Promo:
+    Pra essa primeira turma,
+    eu liberei um lote relâmpago com vagas limitadas.
+
+
+PRICE CARD SECTION
+==================
+
+  Desconto:
+    De R$697
+
+  Informação de Parcelamento:
+    por apenas 12x de
+
+  Preço em Destaque:
+    R$9,34
+
+  Informação de Pagamento à Vista:
+    ou R$97 à vista
+
+  Títular - O que está incluso:
+    O que está incluso:
+
+  Lista de Inclusões:
+    ✓ 2 horas de Workshop Intensivo ao vivo e online
+    ✓ Acesso aos 6 Pilares de Vendas High Ticket
+    ✓ Q&A ao vivo direto comigo
+    🎁 BÔNUS: VendaMais.IA — Inteligência Artificial treinada por mim
+
+  Aviso de Urgência:
+    Esse é o tipo de oportunidade que eu não sei se vou repetir. Tem dia.
+    Tem hora. Tem vaga.
+
+  CTA (Call to Action):
+    GARANTIR MINHA VAGA AGORA
+
+  Métodos de Pagamento:
+    BOLETO | VISA | MASTERCARD | AMEX | PIX |
+    🔒 Compra Segura | Satisfação Garantida | Privacidade Protegida
+
+
+GARANTIA SECTION
+================
+
+  Destaque Visual (grande número):
+    7
+
+  Badge / Subtítulo:
+    7 Dias de Garantia
+
+  Título Principal (H3):
+    Garantia incondicional de 7 dias.
+
+  Corpo do Texto:
+    - Se você entrar e em 7 dias achar que isso não foi pra você, eu devolvo
+      cada centavo. Sem pergunta. Sem burocracia.
+    - O risco é todo meu. Você tem uma semana inteira pra decidir se faz
+      sentido, eu confio tanto no que vou entregar que prefiro tirar essa
+      preocupação do seu caminho.
+
+
+PARA QUEM É SECTION
+===================
+
+  Seção 1 - Título (H3):
+    É pra você se...
+
+  Seção 1 - Lista de Requisitos:
+    ✓ Você é empresário ou especialista que vende ou quer vender high ticket
+      (produto ou serviço de R$ 3 mil pra cima)
+    ✓ Você sente que trabalha muito mais do que vende
+    ✓ Você já cansou de disputar preço com concorrente que entrega menos
+    ✓ Você quer construir uma máquina de vendas previsível, não depender de
+      mês bom e mês ruim
+    ✓ Você está disposto a aplicar o que aprender — não só assistir e fazer
+      anotação bonita
+
+  Seção 2 - Título (H3):
+    Não é pra você se...
+
+  Seção 2 - Lista de Exclusões:
+    ✕ Você quer fórmula mágica de fim de semana
+    ✕ Você acredita que vendas é dom, não método
+    ✕ Você ainda não tem produto definido nem mercado mínimo pra vender
+
+
+BÔNUS SECTION
+=============
+
+  Badge / Supertítulo:
+    🔥 Bônus Exclusivo — VendaMais.IA
+
+  Título Principal (H2):
+    E você ainda leva pra casa a IA que eu mesmo treinei: a VendaMais.IA
+
+  Subtítulo:
+    Quem garante a vaga ainda leva um bônus que vale o ingresso sozinho.
+
+  Descrição - Parte 1:
+    Eu construí, junto com meu time, uma Inteligência Artificial treinada com
+    tudo que eu sei sobre vendas high ticket: a VendaMais.IA.
+
+  Descrição - Parte 2:
+    Funciona assim: depois do treinamento, qualquer dúvida que você tiver na
+    hora de fechar uma negociação, qualquer objeção que pegar você desprevenido,
+    qualquer cenário difícil — você abre a VendaMais.IA e ela te responde como
+    se fosse eu.
+
+  Características da IA:
+    ✓ Tira dúvida sobre negociação complexa em tempo real
+    ✓ Te dá orientação personalizada pra cada situação de venda
+    ✓ Funciona 24 horas por dia, 7 dias por semana
+    ✓ Refina suas abordagens com base na metodologia do treinamento
+
+  Descrição Finalização:
+    É como ter o Darlan ao seu lado, depois do dia 18, toda vez que você
+    precisar.
+
+
+PROVA SOCIAL SECTION
+====================
+
+  Título Principal (H2):
+    Veja o que aconteceu com quem aplicou o que eu ensino.
+
+  Subtítulo:
+    Não são números no papel. São empresas reais, com nome e CNPJ.
+
+  Chamada para Vídeos:
+    APERTE O PLAY ▶
+
+  Case 1 - Nome:
+    Lima Neto
+
+  Case 1 - Descrição:
+    Advocacia especializada em Planejamento tributário
+
+  Case 1 - Resultado:
+    6,6 milhões/ano
+
+  Case 2 - Resultado:
+    700 milhões de reais em negócios
+
+  CTA (Call to Action):
+    EU QUERO O MAPA DA VENDA
+
+
+CUSTO SECTION
+=============
+
+  Título Principal - Parte 1 (H2):
+    O que custa mais caro:
+
+  Título Principal - Parte 2 (H2) - Com Destaque:
+    R$ 97 hoje, ou mais um ano vendendo no improviso?
+
+  Chamada de Atenção:
+    Pensa comigo.
+
+  Corpo do Texto - Perguntas Provocativas:
+    - Quanto vale uma única venda a mais por mês na sua empresa?
+    - Quanto vale você nunca mais ter que dar 20% de desconto pra fechar?
+    - Quanto vale ter um processo comercial que roda mesmo quando você está
+      de férias?
+
+  Corpo do Texto - Reflexão:
+    - R$ 97 é menos do que você gasta num jantar fora. Mas o que você vai
+      aplicar do dia 05 de maio em diante pode mudar o ano da sua empresa.
+    - Eu vou estar lá. A pergunta é: você vai estar?
+
+  CTA (Call to Action):
+    EU QUERO O MAPA DA VENDA
+
+
+P.S. SECTION
+============
+
+  Badge / Supertítulo:
+    P.S. — EU JÁ TE FALEI E REPITO:
+
+  Corpo do Texto:
+    - Eu não ensino o que aprendi em livro. Eu ensino o que vivo todos os dias.
+    - Esse é o tipo de encontro que eu faço pra empresário sério — empresário
+      que está disposto a parar de improvisar e começar a vender com método.
+    - Te espero no dia 18.
+
+  Assinatura - Nome:
+    Darlan Sousa
+
+  Assinatura - Cargo:
+    Fundador e CEO do Clube de Venda
+
+  CTA (Call to Action):
+    EU QUERO O MAPA DA VENDA
+
+
+DÚVIDAS SECTION
+===============
+
+  Título Principal (H2):
+    ⚠️ Ainda está com dúvidas?
+
+  Subtítulo (H3):
+    Fale com meu time.
+
+  Corpo do Texto:
+    Clique no botão abaixo para tirar sua dúvida com nossa equipe pelo Whatsapp
+
+  CTA (Call to Action):
+    QUERO FALAR COM A EQUIPE ©
+
+  Rodapé / Copyright:
+    Darlan Sousa © Copyright 2026. Todos os direitos reservados.
+
+
+FAQ SECTION
+===========
+
+  Supertítulo:
+    FAQ — PERGUNTAS FREQUENTES
+
+  Título Principal (H2):
+    Ainda com dúvida? Lê aqui.
+
+  FAQ Item 1:
+    Pergunta: Vou ter acesso à gravação?
+    Resposta: Não. O Mapa da Venda é ao vivo, sem replay. Quem está presente,
+              leva o conteúdo, leva o Q&A e leva a VendaMais.IA. Quem não está,
+              perde — e não tem segunda chance.
+    [Aberto por padrão]
+
+  FAQ Item 2:
+    Pergunta: É pra mim mesmo se eu ainda não vendi high ticket?
+    Resposta: [A preencher]
+
+  FAQ Item 3:
+    Pergunta: Como recebo o link de acesso?
+    Resposta: [A preencher]
+
+  FAQ Item 4:
+    Pergunta: E se eu não puder estar ao vivo no dia 18 de maio?
+    Resposta: [A preencher]
+
+  FAQ Item 5:
+    Pergunta: O que é a VendaMais.IA exatamente?
+    Resposta: [A preencher]
+
+  FAQ Item 6:
+    Pergunta: Por quanto tempo eu tenho acesso à VendaMais.IA?
+    Resposta: [A preencher]
+
+  FAQ Item 7:
+    Pergunta: Posso parcelar em mais vezes ou usar Pix?
+    Resposta: [A preencher]
+
+  FAQ Item 8:
+    Pergunta: E se eu tiver outra dúvida que não está aqui?
+    Resposta: [A preencher]
+
+
+SOBRE SECTION
+=============
+
+  Título Principal (H2):
+    Eu sou Fabrhicio ARI.
+
+  Corpo do Texto - Jornada Pessoal:
+    - Eu comecei a vender com 7 anos, limpando quintal de tio em troca de uns
+      trocados.
+    - Quando minha família se mudou pra Goiânia, fui pra rua vender pano de
+      prato com meu pai e meu irmão. Casa em casa. Olho no olho. Recusa atrás
+      de recusa.
+    - Foi ali que eu aprendi a vender. Antes de qualquer livro. Antes de
+      qualquer curso. Antes de qualquer mentoria.
+    - Depois vendi madeira com meu pai. Fui destaque vendendo colchão magnético.
+      Fui o melhor vendedor de carros da empresa que trabalhei.
+
+  Corpo do Texto - Carreira Profissional:
+    - Em 2010 entrei no mercado imobiliário. Naquele ano fui eleito o melhor
+      corretor do Brasil em VGV. Em 2012 abri minha própria imobiliária em
+      Goiânia.
+    - Hoje eu sou fundador e sócio de 9 empresas em segmentos diferentes —
+      imobiliário, digital, educacional, hospedagem, tecnologia, mineração e
+      consultoria.
+    - Numa única operação comercial, eu vendi 190 milhões de reais em 48 horas.
+    - Já formei mais de 4.500 empresários dentro do Clube de Venda.
+    - E guio diretamente mais de 180 empresários no D'Club.
+
+  Corpo do Texto - Filosofia:
+    - Eu te conto tudo isso por um motivo só: eu não ensino o que aprendi em
+      livro.
+    - Eu ensino o que vivo todos os dias. Eu estou no jogo. E é por isso que
+      empresário sério respeita, segue e aplica e tem resultado com o que eu
+      compartilho.
+
+================================================================================
+                             FIM DO DOCUMENTO
+================================================================================
