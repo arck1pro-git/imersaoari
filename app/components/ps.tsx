@@ -8,17 +8,17 @@ export default function PS() {
       </p>
 
       <div className="max-w-2xl mx-auto space-y-5 text-gray-300 text-base md:text-lg">
-        <p>Eu não ensino o que aprendi em livro. Eu ensino o que vivo todos os dias.</p>
+        <p>Eu não ensino o que aprendi em livro. Eu ensino o que vivo todos os dias há 20 anos.</p>
         <p>
-          Essa é a Imersão que eu faço pra investidor sério — investidor que está disposto
+          Essa é a Imersão que eu faço pra investidor sério, investidor que está disposto
           a parar de perder para a inflação e começar a multiplicar com método.
         </p>
-        <p className="text-white">Te espero nos dias 20, 21 e 22.</p>
+        <p className="text-white">Te espero nos dias 26, 27 e 28 de maio.</p>
       </div>
 
       <div className="mt-10">
         <p className="font-serif text-4xl md:text-5xl gradient-text tracking-wide mb-1">
-          Fabricio ARI
+          Fabhricio ARI
         </p>
         <p className="text-gray-400 text-sm uppercase tracking-widest">
           Incorporador e Investidor Imobiliário

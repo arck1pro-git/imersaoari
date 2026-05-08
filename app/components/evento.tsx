@@ -1,37 +1,39 @@
+import { Calendar, Monitor, Timer, Mic, BarChart2 } from "lucide-react";
+
 export default function Evento() {
 
     return (
 <section className=" text-white py-24 px-6">
   <div className="max-w-3xl mx-auto text-center">
-    <h2 className="text-2xl font-bold uppercase tracking-wide mb-12">
-      Como vai ser a <span className="gradient-text">Imersão de 20 a 22 de Maio.</span>
+    <h2 className="text-6xl font-cormorant font-bold mb-12">
+      Como vai ser a <span className="gradient-text">Imersão ARI dia 26, 27 e 28 de maio:</span>
     </h2>
 
-    <div className="bg-gray-900 rounded-sm aspect-video w-full max-w-xl mx-auto mb-10 border border-gray-800 flex items-center justify-center">
-      <span className="text-gray-600 text-sm">Imagem da imersão online</span>
-    </div>
-
-    <div className="bg-gray-900 rounded-sm p-8 text-left space-y-4 border border-gray-800">
+    <div
+      style={{ padding: "1.5px", background: "linear-gradient(135deg, #c4a540 0%, #ecce83 50%, #f5dfa8 100%)", borderRadius: "1.5rem" }}
+    >
+    <div className="bg-zinc-950 p-8 text-left space-y-4" style={{ borderRadius: "calc(1.5rem - 1.5px)" }}>
       <div className="flex items-start gap-3 text-sm text-gray-300">
-        <span className="gradient-text flex-shrink-0">📅</span>
-        Dias 20, 21 e 22 de maio às 20h (Brasília).
+        <Calendar size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#ecce83" }} />
+        Dias 26, 27 e 28 de maio às 20h (Brasília).
       </div>
       <div className="flex items-start gap-3 text-sm text-gray-300">
-        <span className="gradient-text flex-shrink-0">💻</span>
-        Ao vivo pelo Zoom — link exclusivo para inscritos.
+        <Monitor size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#ecce83" }} />
+        Ao vivo pelo Youtube — link exclusivo para inscritos.
       </div>
       <div className="flex items-start gap-3 text-sm text-gray-300">
-        <span className="gradient-text flex-shrink-0">⏱</span>
-        3 noites de conteúdo denso e aplicável.
+        <Timer size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#ecce83" }} />
+        3 noites de conteúdo prático e aplicável.
       </div>
       <div className="flex items-start gap-3 text-sm text-gray-300">
-        <span className="gradient-text flex-shrink-0">🎙</span>
+        <Mic size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#ecce83" }} />
         Q&A ao vivo para tirar dúvidas diretamente comigo.
       </div>
-      <div className="flex items-start gap-3 text-sm text-white font-semibold">
-        <span className="gradient-text flex-shrink-0">📊</span>
-        <span><span className="text-white">Planilha de análise de viabilidade</span> <span className="text-gray-400 font-normal">inclusa para alunos.</span></span>
+      <div className="flex items-start gap-3 text-sm text-gray-300">
+        <BarChart2 size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#ecce83" }} />
+        Materiais para análise de investimento.
       </div>
+    </div>
     </div>
   </div>
 </section>

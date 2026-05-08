@@ -3,27 +3,27 @@ import { useEffect, useRef, useState } from "react";
 
 const PILARES = [
   {
-    label: "Pilar 1 — Seleção de Oportunidades",
-    title: "Como identificar a incorporação certa?",
-    body: "Critérios técnicos para filtrar empreendimentos viáveis de armadilhas. Não é intuição — é análise.",
+    label: "Pilar 1 — Mentalidade de Investidor",
+    title: "Identifique onde você está e transite para o aporte inteligente.",
+    body: "Aprenda a transicionar do operacional para o aporte inteligente, focado na multiplicação real do patrimônio.",
     image: "/pilar1.png",
   },
   {
-    label: "Pilar 2 — Alavancagem do Capital",
-    title: "Como multiplicar sem risco excessivo?",
-    body: "A estrutura que transforma R$ 50 mil em R$ 100 mil com segurança jurídica e financeira.",
+    label: "Pilar 2 — Seleção de Oportunidades",
+    title: "Como identificar a incorporação certa para investir?",
+    body: "Critérios técnicos e embasados para filtrar empreendimentos viáveis de armadilhas.",
     image: "/pilar2.png",
   },
   {
-    label: "Pilar 3 — Renda Durante a Obra",
-    title: "Como receber antes do retorno final?",
-    body: "Com a estrutura certa há remuneração mensal — sem precisar esperar 36 meses para ver resultado.",
+    label: "Pilar 3 — Segurança e Gestão de Patrimônio",
+    title: "A arquitetura por trás da segurança jurídica e financeira.",
+    body: "Saiba como utilizar SPEs, SCP e garantias reais para assegurar que o patrimônio investido esteja sempre protegido e rentável.",
     image: "/pilar3.png",
   },
   {
-    label: "Pilar 4 — Proteção e Saída Inteligente",
-    title: "Como proteger e sair no momento certo?",
-    body: "Due diligence, contratos e estratégia de saída em uma só etapa — para maximizar o retorno e blindar seu patrimônio.",
+    label: "Pilar 4 — Ciclo de Saída e Realização de Lucro",
+    title: "Como otimizar a saída do ativo e capturar a máxima valorização?",
+    body: "Entenda como garantir que o retorno sobre o capital (ROE) seja realizado com eficiência, atingindo 100% de retorno em 3 anos.",
     image: "/pilar4.jpg",
   },
 ];
@@ -101,7 +101,7 @@ function DesktopCarousel() {
     const measure = () => {
       const w = el.offsetWidth;
       if (w <= 0) return;
-      setCardWidth(w < 1024 ? (w - GAP) / 2 : (w - GAP * 2) / 3);
+      setCardWidth(Math.round(w < 1024 ? (w - GAP) / 2 : (w - GAP * 2) / 3));
     };
 
     measure();
@@ -137,7 +137,7 @@ function DesktopCarousel() {
         {cards.map((pilar, i) => (
           <div
             key={i}
-            className="flex-shrink-0 bg-zinc-900 rounded-lg overflow-hidden border-t-2 border-yellow-600 flex flex-col shadow-lg"
+            className="flex-shrink-0 bg-zinc-900 rounded-lg overflow-hidden flex flex-col shadow-lg"
             style={{ width: cardWidth || undefined }}
           >
             <CardContent pilar={pilar} />
@@ -154,11 +154,10 @@ export default function Pilares() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-6xl font-cormorant font-bold mb-3">
-            Nos 3 dias, eu vou abrir os{" "}
-            <span className="gradient-text">4 pilares que sustentam toda incorporação de sucesso.</span>
+            <span className="gradient-text">Nos 3 dias vamos nos aprofundar nos 4 pilares para um investimento de sucesso.</span>
           </h2>
           <p className="text-gray-400 text-sm">
-            Esses são os mesmos 4 pilares que eu uso nas minhas próprias incorporações. Não são teoria. São prática.
+            Esses são os mesmos 4 pilares que eu uso nos meus próprios investimentos.
           </p>
         </div>
       </div>

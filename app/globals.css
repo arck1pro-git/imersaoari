@@ -42,6 +42,40 @@ body {
   to { opacity: 1; }
 }
 
+@keyframes spin-border {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.border-spin::before {
+  content: "";
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(196, 165, 64, 0.15) 40deg,
+    #c4a540 60deg,
+    #ecce83 75deg,
+    #f5dfa8 85deg,
+    #ecce83 95deg,
+    #c4a540 110deg,
+    rgba(196, 165, 64, 0.15) 130deg,
+    transparent 170deg,
+    transparent 360deg
+  );
+  animation: spin-border 4s linear infinite;
+}
+
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
 }

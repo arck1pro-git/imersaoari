@@ -5,12 +5,22 @@ export default function garantia() {
   <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
     <div className="flex items-center justify-center">
-      <div className="relative w-52 h-52 rounded-full border-2 border-yellow-600 flex items-center justify-center">
-        <div className="absolute inset-0 rounded-full border border-dashed border-yellow-800 m-3"></div>
-        <div className="text-center">
-          <p className="gradient-text text-xs uppercase tracking-widest font-semibold">7 Dias de</p>
-          <p className="gradient-text text-6xl font-black">7</p>
-          <p className="gradient-text text-xs uppercase tracking-widest font-semibold">Garantia</p>
+      <div
+        className="relative w-72 h-72 rounded-full flex items-center justify-center"
+        style={{ padding: "2px", background: "linear-gradient(135deg, #c4a540 0%, #ecce83 50%, #f5dfa8 100%)", borderRadius: "9999px" }}
+      >
+        {/* Pontilhado girando */}
+        <div
+          className="spin-slow absolute inset-0 rounded-full"
+          style={{ border: "2px dashed rgba(236, 206, 131, 0.6)", margin: "10px", borderRadius: "9999px" }}
+        />
+        {/* Fundo interno */}
+        <div className="w-full h-full rounded-full bg-zinc-950 flex items-center justify-center">
+          <div className="text-center">
+            <p className="gradient-text text-xs uppercase tracking-widest font-semibold">7 Dias de</p>
+            <p className="gradient-text text-8xl font-black leading-none">7</p>
+            <p className="gradient-text text-xs uppercase tracking-widest font-semibold">Garantia</p>
+          </div>
         </div>
       </div>
     </div>

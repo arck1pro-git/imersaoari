@@ -30,7 +30,6 @@ export default function Home() {
       <Treinamento />
       <Pilares />
       <Parequem />
-      <Provasocial />
       <Evento />
       <Preco />
       <Precocard />

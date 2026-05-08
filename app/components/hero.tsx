@@ -37,7 +37,7 @@ export default function Hero() {
       </div>
 
       {/* Conteúdo */}
-      <div className="relative z-10 flex flex-1 items-center max-w-7xl mx-auto px-8 py-10 sm:py-20 w-full">
+      <div className="relative z-10 flex flex-1 items-center max-w-7xl mx-auto px-8 py-10 sm:py-20 w-full -mt-12">
         <div className="w-full max-w-xl text-center sm:text-left mx-auto sm:mx-0">
           <span className="inline-block border border-zinc-900 rounded-full text-white/20 text-xs tracking-widest uppercase px-4 py-1 mb-6 font-semibold">
             Imersão Online Exclusiva | Vagas Limitadas
@@ -47,17 +47,17 @@ export default function Hero() {
             <span className="gradient-text font-bold">ARI</span>
           </h1>
           <p className="gradient-text text-xl font-semibold leading-snug mb-4 mt-6">
-            3 dias online para você aprender o método que dobra patrimônio em 3 anos com a solidez do mercado imobiliário catarinense.
+            3 dias para você aprender como dobrar seu patrimônio nos próximos 3 anos.
           </p>
-          <p className="text-gray-300 text-sm leading-relaxed mb-8">
-            Entre os dias 26, 27 e 28 de maio, eu vou revelar o sistema completo de investimento em incorporação imobiliária que já multiplicou o capital de dezenas de investidores. O mesmo método que transforma R$ 50 mil em R$ 100 mil em 36 meses, com remuneração mensal e isenção de IR.
+          <p className="text-gray-300 lg:block hidden text-sm leading-relaxed mb-8">
+            Participe da Imersão ARI e descubra como multiplicar seu patrimônio no litoral de Santa Catarina com rendimentos de até 3% ao mês, livres de imposto de renda investindo em incorporação imobiliária. É a estratégia definitiva para quem busca dobrar seu capital com a segurança de ativos reais.
+          </p>
+          <p className="gradient-text text-xs mb-4">
+            26, 27 e 28 de maio às 20h &nbsp;·&nbsp; 100% online e ao vivo &nbsp;·&nbsp; R$ 89,00
           </p>
           <ModalTrigger className="button text-black font-bold uppercase tracking-widest px-10 py-4 text-sm block sm:inline-block text-center">
             QUERO GARANTIR MINHA VAGA
           </ModalTrigger>
-          <p className="gradient-text text-xs mt-4">
-            Investimento: R$ [X,XX] — <span className="underline">Condição especial para a nova turma</span>
-          </p>
         </div>
       </div>
 
