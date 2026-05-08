@@ -105,7 +105,7 @@ export default function LeadModal() {
                     required
                     name="whatsapp"
                     type="tel"
-                    maxLength={12}
+                    maxLength={11}
                     value={form.whatsapp}
                     onChange={e => setForm(f => ({ ...f, whatsapp: e.target.value }))}
                     className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-600 transition-colors"
