@@ -99,7 +99,7 @@ body {
   cursor: pointer;
   border-radius: 12px;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 0.875rem;
   position: relative;
   overflow: hidden;
 }
@@ -116,6 +116,12 @@ body {
   animation: lightBeam 5s infinite;
   z-index: 1;
   pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .button {
+    font-size: 20px;
+  }
 }
 
 .button:hover {

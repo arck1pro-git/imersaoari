@@ -2,7 +2,7 @@ import ModalTrigger from "./modal-trigger";
 
 export default function PS() {
   return (
-    <section className="text-white py-24 px-6 text-center">
+    <section className="text-white py-12 px-6 text-center">
       <p className="gradient-text font-bold tracking-widest uppercase text-sm mb-8">
         P.S. — EU JÁ TE FALEI E REPITO:
       </p>
@@ -27,7 +27,7 @@ export default function PS() {
 
       <div className="mt-10">
         <ModalTrigger className="button text-black font-bold uppercase tracking-widest text-sm px-10 py-4">
-          QUERO GARANTIR MINHA VAGA
+          GARANTIR MINHA VAGA
         </ModalTrigger>
       </div>
     </section>

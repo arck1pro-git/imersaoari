@@ -2,8 +2,8 @@ import ModalTrigger from "./modal-trigger";
 
 export default function Custo() {
   return (
-    <section className=" text-white py-24 px-6 text-center">
-      <h2 className="text-4xl font-cormorant font-bold gradient-text mb-10">
+    <section className=" text-white py-12 px-6 text-center">
+      <h2 className="text-3xl font-cormorant font-bold gradient-text mb-10">
         O valor da inscrição na Imersão ARI é irrisório<br/>perto do que você deixa de ganhar todos os meses<br/>com seu dinheiro parado em aplicações medíocres.
       </h2>
 
@@ -16,7 +16,7 @@ export default function Custo() {
 
       <div className="mt-10">
         <ModalTrigger className="button text-black font-bold uppercase tracking-widest text-sm px-10 py-4">
-          QUERO GARANTIR MINHA VAGA
+          GARANTIR MINHA VAGA
         </ModalTrigger>
       </div>
     </section>

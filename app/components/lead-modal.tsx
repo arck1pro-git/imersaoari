@@ -28,7 +28,7 @@ export default function LeadModal() {
     setLoading(true);
     setError(false);
     const phone = form.whatsapp.replace(/\D/g, "");
-    const params = new URLSearchParams({ nome: form.nome, email: form.email, whatsapp: phone });
+    const params = new URLSearchParams({ nome: form.nome, email: form.email, whatsapp: "55" + phone });
     try {
       await fetch(`${API}&${params.toString()}`, { method: "POST" });
       const hotmart = new URL("https://pay.hotmart.com/X105745330Y");

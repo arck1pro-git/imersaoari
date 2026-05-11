@@ -1,8 +1,8 @@
 export default function Problem() {
     return (
-<section className="text-white py-24 px-6">
+<section className="text-white lg:py-12 py-4 px-6">
   <div className="max-w-3xl mx-auto text-center">
-    <h2 className="gradient-text font-cormorant text-5xl lg:text-6xl mb-2">A maior parte dos investidores não sabe multiplicar seu dinheiro. Eles apenas preservam seu capital.</h2>
+    <h2 className="gradient-text font-cormorant text-4xl lg:text-6xl mb-2">A maior parte dos investidores não sabe multiplicar seu dinheiro. Eles apenas preservam seu capital.</h2>
     <h3 className="text-white text-4xl font-cormorant font-bold mb-10">E com isso se tornam apenas poupadores, e não investidores.</h3>
 
     <p className="text-2xl font-bold mb-10">Para. Lê isso de novo.</p>

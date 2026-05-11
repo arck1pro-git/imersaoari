@@ -150,7 +150,7 @@ function DesktopCarousel() {
 
 export default function Pilares() {
   return (
-    <section className="text-white py-24">
+    <section className="text-white py-12">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-6xl font-cormorant font-bold mb-3">

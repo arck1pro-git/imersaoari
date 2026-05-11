@@ -1,10 +1,9 @@
 export default function Duvidas() {
   return (
-    <section className="bg-zinc-950 text-white py-24 px-6 text-center relative overflow-hidden">
-      <div className="absolute -bottom-96 -right-0 w-[900px] h-[900px] bg-gradient-to-tl from-blue-900 to-transparent rounded-full blur-[200px] opacity-70 pointer-events-none"></div>
+    <section className="bg-black text-white py-12 px-6 text-center relative overflow-hidden">
       <div className="relative z-10">
-        <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-3">
-          ⚠️ Ainda está com dúvidas?
+        <h2 className="text-3xl md:text-4xl font-bold font-cormorant gradient-text mb-3">
+           Ainda está com dúvidas?
         </h2>
         <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Fale com meu time.
@@ -23,7 +22,7 @@ export default function Duvidas() {
         </a>
 
         <p className="mt-20 text-gray-600 text-xs">
-          Fabricio ARI © Copyright 2026. Todos os direitos reservados.
+          Fabhricio ARI © Copyright 2026. Todos os direitos reservados.
         </p>
       </div>
     </section>

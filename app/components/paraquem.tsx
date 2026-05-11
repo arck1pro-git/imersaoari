@@ -3,7 +3,7 @@ import { CheckCircle, XCircle } from "lucide-react";
 export default function Parequem() {
 
     return (
-<section className="text-white py-24 px-6">
+<section className="text-white py-10 px-6">
   <div className="max-w-4xl lg:max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
 
     <div className="bg-zinc-950 rounded-xl p-8 lg:p-14">

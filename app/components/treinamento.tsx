@@ -1,9 +1,9 @@
 export default function Treinamento() {
 
     return (
-<section className="text-white bg-zinc-950 py-24 px-6">
+<section className="text-white bg-zinc-950 py-12 px-6">
   <div className="max-w-3xl mx-auto text-center">
-    <h2 className="text-6xl font-cormorant font-bold mb-8">
+    <h2 className="lg:text-6xl text-4xl font-cormorant font-bold mb-8">
       O que é a <span className="gradient-text">Imersão ARI?</span>
     </h2>
 

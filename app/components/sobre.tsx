@@ -1,12 +1,12 @@
 export default function Sobre() {
 
     return (
-<section className="relative text-white py-24 px-6">
+<section className="relative text-white py-12 px-6">
   <div className="absolute bottom-0 left-0 right-0 h-80 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 100% at 50% 100%, rgba(30,58,138,0.6), transparent)' }} />
 
-  <div className="relative max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+  <div className="relative lg:text-left text-center max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
     <div>
-      <h2 className="text-5xl font-cormorant font-bold mb-6">
+      <h2 className="lg:text-6xl text-4xl font-cormorant font-bold mb-6">
         Eu sou <span className="gradient-text">Fabhricio ARI.</span>
       </h2>
       <div className="space-y-4 text-gray-300 text-sm leading-relaxed">

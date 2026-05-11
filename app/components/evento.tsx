@@ -3,11 +3,11 @@ import { Calendar, Monitor, Timer, Mic, BarChart2 } from "lucide-react";
 export default function Evento() {
 
     return (
-<section className=" text-white py-24 px-6">
+<section className=" text-white lg:py-8 py-4 px-6">
   <div className="max-w-3xl mx-auto text-center">
-    <h2 className="text-6xl font-cormorant font-bold mb-12">
-      Como vai ser a <span className="gradient-text">Imersão ARI dia 26, 27 e 28 de maio:</span>
-    </h2>
+    <h2 className="lg:text-6xl text-4xl font-cormorant font-bold mb-12">
+      Como vai ser a <span className="gradient-text">IMERSÃO ARI</span>?
+    </h2> 
 
     <div
       style={{ padding: "1.5px", background: "linear-gradient(135deg, #c4a540 0%, #ecce83 50%, #f5dfa8 100%)", borderRadius: "1.5rem" }}

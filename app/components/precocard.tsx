@@ -4,7 +4,7 @@ import { Check, Gift, Lock } from "lucide-react";
 export default function Precocard() {
 
     return (
-<section className="py-24 px-6">
+<section className="py-12 px-6">
   <div className="max-w-lg mx-auto">
     <div
       style={{ padding: "1.5px", background: "linear-gradient(135deg, #c4a540 0%, #ecce83 50%, #f5dfa8 100%)", borderRadius: "1.5rem" }}
@@ -28,7 +28,7 @@ export default function Precocard() {
         </p>
 
         <ModalTrigger className="block button text-black font-bold uppercase tracking-widest px-8 py-4 text-sm">
-          QUERO ME INSCREVER AGORA
+          GARANTIR MINHA VAGA
         </ModalTrigger>
 
         <div className="flex justify-center gap-2 mt-6 opacity-40 flex-wrap">

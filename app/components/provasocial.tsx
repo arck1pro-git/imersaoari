@@ -29,7 +29,7 @@ export default function Provasocial() {
     </div>
 
     <ModalTrigger className="inline-block button text-black font-bold uppercase tracking-widest px-12 py-4 text-sm">
-      QUERO GARANTIR MINHA VAGA
+      GARANTIR MINHA VAGA
     </ModalTrigger>
   </div>
 </section>

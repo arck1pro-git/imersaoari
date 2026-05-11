@@ -53,18 +53,24 @@ function FaqItem({ pergunta, resposta }: { pergunta: string; resposta: string })
       style={aberto ? { background: "linear-gradient(135deg, #c4a540 0%, #ecce83 50%, #f5dfa8 100%)" } : { background: "#27272a" }}
     >
       <button
+        type="button"
         onClick={() => setAberto(a => !a)}
-        className="w-full flex items-center justify-between px-5 py-4 text-left text-white font-semibold text-sm md:text-base"
+        className="w-full flex items-center justify-between px-5 py-4 text-left text-white font-semibold text-sm md:text-base touch-manipulation"
       >
         <span>{pergunta}</span>
         <span className="text-xl font-light ml-4">{aberto ? "−" : "+"}</span>
       </button>
       <div
-        className="overflow-hidden transition-all duration-500 ease-in-out"
-        style={{ maxHeight: aberto ? "300px" : "0px", opacity: aberto ? 1 : 0 }}
+        style={{
+          display: "grid",
+          gridTemplateRows: aberto ? "1fr" : "0fr",
+          transition: "grid-template-rows 0.35s ease",
+        }}
       >
-        <div className="px-5 pb-5 text-black text-sm leading-relaxed font-medium">
-          {resposta}
+        <div className="overflow-hidden">
+          <div className="px-5 pb-5 text-black text-sm leading-relaxed font-medium">
+            {resposta}
+          </div>
         </div>
       </div>
     </div>
@@ -76,14 +82,14 @@ export default function Faq() {
   const direita = faqItems.filter((i) => i.lado === "direita");
 
   return (
-    <section className="text-white py-20 px-6 relative overflow-hidden">
+    <section className="text-white py-12 px-6 relative overflow-hidden">
       
 
       <div className="relative z-10 max-w-5xl mx-auto">
         <p className="text-center gradient-text font-bold tracking-[0.3em] uppercase text-sm mb-3">
           FAQ — PERGUNTAS FREQUENTES
         </p>
-        <h2 className="text-center text-3xl md:text-4xl font-bold text-white mb-12">
+        <h2 className="text-center text-3xl md:text-4xl font-cormorant font-bold text-white mb-12">
           Ainda com dúvida? Lê aqui.
         </h2>
 

@@ -38,25 +38,25 @@ export default function Hero() {
 
       {/* Conteúdo */}
       <div className="relative z-10 flex flex-1 items-center max-w-7xl mx-auto px-8 py-10 sm:py-20 w-full -mt-12">
-        <div className="w-full max-w-xl text-center sm:text-left mx-auto sm:mx-0">
-          <span className="inline-block border border-zinc-900 rounded-full text-white/20 text-xs tracking-widest uppercase px-4 py-1 mb-6 font-semibold">
+        <div className="w-full max-w-xl text-center lg:text-left mx-auto lg:mx-0">
+          <span className="inline-block border border-zinc-900 rounded-full text-white/20 text-xs uppercase px-4 py-1 lg:mb-6 font-semibold">
             Imersão Online Exclusiva | Vagas Limitadas
           </span>
-          <h1 className="text-white font-cormorant text-6xl sm:text-8xl font-light leading-tight mb-2">
+          <h1 className="text-white font-cormorant text-6xl sm:text-8xl font-light leading-tight mb-2 ">
             IMERSÃO<br />
             <span className="gradient-text font-bold">ARI</span>
           </h1>
-          <p className="gradient-text text-xl font-semibold leading-snug mb-4 mt-6">
+          <p className="gradient-text text-md lg:text-xl font-semibold leading-snug mb-4 mt-6">
             3 dias para você aprender como dobrar seu patrimônio nos próximos 3 anos.
           </p>
           <p className="text-gray-300 lg:block hidden text-sm leading-relaxed mb-8">
             Participe da Imersão ARI e descubra como multiplicar seu patrimônio no litoral de Santa Catarina com rendimentos de até 3% ao mês, livres de imposto de renda investindo em incorporação imobiliária. É a estratégia definitiva para quem busca dobrar seu capital com a segurança de ativos reais.
           </p>
-          <p className="gradient-text text-xs mb-4">
+          <p className="gradient-text lg:block hidden text-xs mb-4">
             26, 27 e 28 de maio às 20h &nbsp;·&nbsp; 100% online e ao vivo &nbsp;·&nbsp; R$ 89,00
           </p>
-          <ModalTrigger className="button text-black font-bold uppercase tracking-widest px-10 py-4 text-sm block sm:inline-block text-center">
-            QUERO GARANTIR MINHA VAGA
+          <ModalTrigger className="button text-black font-bold uppercase tracking-widest px-10 py-4 text-sm inline-block">
+            GARANTIR MINHA VAGA
           </ModalTrigger>
         </div>
       </div>
