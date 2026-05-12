@@ -27,7 +27,7 @@ export default function Precocard() {
           Eu abro vagas assim raramente. Quando as vagas para esta turma esgotarem, o carrinho será fechado.
         </p>
 
-        <ModalTrigger className="block button text-black font-bold uppercase tracking-widest px-8 py-4 text-sm">
+        <ModalTrigger className="block mx-auto w-fit button text-black font-bold uppercase tracking-widest px-8 py-4 text-sm">
           GARANTIR MINHA VAGA
         </ModalTrigger>
 

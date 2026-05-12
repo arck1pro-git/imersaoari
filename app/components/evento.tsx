@@ -27,7 +27,7 @@ export default function Evento() {
       </div>
       <div className="flex items-start gap-3 text-sm text-gray-300">
         <Mic size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#ecce83" }} />
-        Q&A ao vivo para tirar dúvidas diretamente comigo.
+        ao vivo para tirar dúvidas diretamente comigo.
       </div>
       <div className="flex items-start gap-3 text-sm text-gray-300">
         <BarChart2 size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#ecce83" }} />

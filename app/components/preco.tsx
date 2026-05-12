@@ -20,7 +20,7 @@ export default function Preco() {
       </h2>
       <p className="gradient-text font-cormorant text-5xl font-bold mt-4">R$ 89,00</p>
       <p className="text-white font-semibold mt-6">ou 12x de R$ 9,20</p>
-      <p className="gradient-text font-semibold">Vagas limitadas para garantir a qualidade do suporte e do Q&A.</p>
+      <p className="gradient-text font-semibold">Vagas limitadas para garantir a qualidade do suporte.</p>
     </div>
   </div>
 </section>
