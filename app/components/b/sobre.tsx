@@ -9,12 +9,13 @@ function TextBlock() {
           <p className="text-sm mb-2" style={{ color: "var(--marquee-blue)" }}>Incorporador e Investidor Imobiliário</p>
           <h3 className="text-2xl font-bold mb-5 text-white">FABHRICIO ARI</h3>
           <div className="space-y-3 text-gray-400 text-sm leading-relaxed">
-            <p>Aos 14 anos, já estava na marcenaria dos pais aprendendo que construir espaço tem cheiro de madeira, não de PowerPoint.</p>
-            <p>Formou-se em arquitetura pela FURB. Quebrou numa sociedade que durou três meses e deixou <span className="text-white font-medium">R$150 mil de dívida</span> no começo. Ficou. Pagou. Cresceu.</p>
-            <p>Doze anos depois, o mesmo escritório virou o maior de Brusque, <span className="text-white font-medium">mais de 20 profissionais.</span></p>
-            <p>Em 2019, se mudou para o litoral. Com sua mulher Patricia, fundou a <span className="text-white font-medium">Arck1Pro</span>: a primeira estruturadora de incorporações da região.</p>
-            <p>Tentou a bolsa. Quase um milhão em carteira diversificada. Três anos depois, liquidou tudo. <span className="text-white font-medium">O mercado imobiliário rendia mais, dormia melhor.</span></p>
-            <p>Em 2025, estruturou o <span className="text-white font-medium">ARI, Ativo de Renda Imobiliária</span>: uma forma do investidor lucrar junto com a incorporação, antes do apartamento existir.</p>
+            <p>Comecei no mercado imobiliário em 2006. Passei 20 anos mergulhado na indústria da construção civil.</p>
+            <p>Não foi só teoria. Foi canteiro, reunião com investidor, cronograma apertado, obra atrasada, cliente nervoso, fornecedor cobrando.</p>
+            <p>Foi ali, no dia a dia, que eu entendi o que realmente move um empreendimento: não é só concreto e planta. É gente. É dinheiro circulando. É timing. É entregar o que promete.</p>
+            <p>Fundei a ARCK1PRO em 2006. Montei um time que pensa como eu: arquitetos, engenheiros, advogados. Gente que não aceita amadorismo. Gente que resolve.</p>
+            <p>Já desenvolvi mais de 350 empreendimentos. Estruturei operações do zero. Levantei capital. Viabilizei projetos que muitos achavam impossíveis.</p>
+            <p>Depois de anos no mercado, estruturei o ARI: o Ativo certo para o investidor do mercado imobiliário.</p>
+            <p className="font-semibold text-white">Transformo terreno em oportunidade. Oportunidade em empreendimento. Empreendimento em lucro real pro investidor.</p>
           </div>
         </div>
       </div>
@@ -61,10 +62,10 @@ function MobileSobre() {
             <p className="text-xs mb-1" style={{ color: "var(--marquee-blue)" }}>Incorporador e Investidor Imobiliário</p>
             <h3 className="text-xl font-bold mb-4 text-white">FABHRICIO ARI</h3>
             <div className="space-y-2 text-gray-400 text-xs leading-relaxed">
-              <p>Aos 14 anos, já estava na marcenaria dos pais aprendendo que construir espaço tem cheiro de madeira, não de PowerPoint.</p>
-              <p>Formou-se em arquitetura pela FURB. Quebrou numa sociedade que durou três meses e deixou <span className="text-white font-medium">R$150 mil de dívida</span> no começo. Ficou. Pagou. Cresceu.</p>
-              <p>Em 2019, mudou para o litoral. Fundou a <span className="text-white font-medium">Arck1Pro</span>: a primeira estruturadora de incorporações da região.</p>
-              <p>Em 2025, estruturou o <span className="text-white font-medium">ARI, Ativo de Renda Imobiliária</span>: uma forma do investidor lucrar junto com a incorporação.</p>
+              <p>Comecei no mercado imobiliário em 2006. Passei 20 anos mergulhado na indústria da construção civil.</p>
+              <p>Foi canteiro, reunião com investidor, obra atrasada, cliente nervoso. Foi ali que entendi o que move um empreendimento.</p>
+              <p>Fundei a <span className="text-white font-medium">ARCK1PRO</span> em 2006. Já desenvolvi mais de 350 empreendimentos e viabilizei projetos que muitos achavam impossíveis.</p>
+              <p className="font-semibold text-white">Transformo terreno em oportunidade. Oportunidade em empreendimento. Empreendimento em lucro real pro investidor.</p>
             </div>
             <div className="flex flex-col gap-2 mt-4">
               {[

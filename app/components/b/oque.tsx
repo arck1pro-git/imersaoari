@@ -16,8 +16,8 @@ export default function Oque() {
           </p>
           <p>
             Não é uma consultoria. É um treinamento onde você aprende, ao vivo, como esse mercado funciona. Da{" "}
-            <span className="gradient-text-blue font-semibold">seleção do empreendimento</span> à{" "}
-            <span className="gradient-text-blue font-semibold">distribuição dos retornos.</span>
+            <span className="gradient-text-blue font-semibold">seleção dos empreendimentos</span> ao{" "}
+            <span className="gradient-text-blue font-semibold">recebimento do lucro.</span>
           </p>
         </div>
       </div>
