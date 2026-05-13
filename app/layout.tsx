@@ -34,7 +34,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Imersão ARI — Dobrar o Capital em 3 Anos",
   description: "Aprenda o método que dobra patrimônio em 3 anos com a solidez do mercado imobiliário catarinense.",
-  icons: { icon: "/logo.png" },
+  icons: { icon: "/icon.png" },
 };
 
 export default function RootLayout({

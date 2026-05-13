@@ -3,6 +3,7 @@
 :root {
   --background: #000000;
   --foreground: #ffffff;
+  --marquee-blue: #1e3a8a;
 }
 
 @theme inline {
@@ -10,6 +11,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --animate-marquee: marquee 30s linear infinite;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -31,10 +33,19 @@ html {
   color: #000000 !important;
 }
 
+#countdown-container.text-blue-accent span {
+  color: var(--marquee-blue) !important;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 @keyframes fadeIn {
@@ -54,6 +65,43 @@ body {
 
 .spin-slow {
   animation: spin-slow 8s linear infinite;
+}
+
+.border-spin-blue {
+  position: relative;
+  overflow: hidden;
+  animation: border-glow-follow 1.5s linear infinite;
+  will-change: box-shadow;
+}
+
+@keyframes border-glow-follow {
+  0%   { box-shadow:  0 -12px 25px rgba(96,165,250,0.7),  0 0 50px rgba(30,58,138,0.2); }
+  25%  { box-shadow:  12px 0 25px rgba(96,165,250,0.7),   0 0 50px rgba(30,58,138,0.2); }
+  50%  { box-shadow:  0 12px 25px rgba(96,165,250,0.7),   0 0 50px rgba(30,58,138,0.2); }
+  75%  { box-shadow: -12px 0 25px rgba(96,165,250,0.7),   0 0 50px rgba(30,58,138,0.2); }
+  100% { box-shadow:  0 -12px 25px rgba(96,165,250,0.7),  0 0 50px rgba(30,58,138,0.2); }
+}
+
+.border-spin-blue::before {
+  content: "";
+  position: absolute;
+  inset: -150%;
+  will-change: transform;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(30, 58, 138, 0.15) 40deg,
+    #1e3a8a 60deg,
+    #2563eb 75deg,
+    #60a5fa 85deg,
+    #2563eb 95deg,
+    #1e3a8a 110deg,
+    rgba(30, 58, 138, 0.15) 130deg,
+    transparent 170deg,
+    transparent 360deg
+  );
+  animation: spin-border 1.5s linear infinite;
+  z-index: 0;
 }
 
 .border-spin::before {
@@ -134,6 +182,77 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #89c4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes shine-text-anim {
+  0%   { background-position: 100% center; }
+  26%  { background-position: 0% center; }
+  100% { background-position: 0% center; }
+}
+
+.shine-text {
+  display: inline-block;
+  background: linear-gradient(
+    105deg,
+    #1e3a8a 0%,
+    #6493f8 38%,
+    #9ac7ff 46%,
+    #bfdbfe 50%,
+    #9ac7ff 54%,
+    #6493f8 62%,
+    #1e3a8a 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: shine-text-anim 5.5s linear infinite;
+}
+
+.button-blue {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #60a5fa 100%);
+  box-shadow: 0 0 20px rgba(37,99,235,0.4), 0 0 40px rgba(37,99,235,0.15);
+  transition: all 0.1s ease;
+  cursor: pointer;
+  border-radius: 0 12px 0 12px;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.button-blue::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  animation: lightBeam 5s infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.button-blue:hover {
+  box-shadow: 0 0 30px rgba(37,99,235,0.7), 0 0 60px rgba(37,99,235,0.3);
+  transform: scale(1.05);
+}
+
+.hover-scale {
+  transition: transform 0.4s ease, box-shadow 0.25s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.07);
 }
 
 /* Saira Font */

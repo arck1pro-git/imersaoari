@@ -44,20 +44,17 @@ export default function LeadModal() {
 
   return (
     <div
-      className="fixed inset-0 z-[200] flex items-center justify-center p-4"
+      className="fixed inset-0 z-[200] flex items-center justify-center p-4 font-poppins"
       style={{ background: "rgba(0,0,0,0.85)", backdropFilter: "blur(4px)" }}
       onClick={e => { if (e.target === e.currentTarget) close(); }}
     >
-      <div
-        className="w-full max-w-md rounded-xl"
-        style={{ padding: "1.5px", background: "linear-gradient(135deg, #c4a540 0%, #ecce83 50%, #f5dfa8 100%)" }}
-      >
-        <div className="bg-zinc-950 rounded-[10px] p-8">
+      <div className="w-full max-w-md rounded-xl border border-white/15 bg-zinc-950">
+        <div className="p-8">
           {success ? (
             <div className="text-center py-6">
-              <p className="gradient-text text-3xl font-bold font-cormorant mb-3">Vaga Garantida!</p>
+              <p className="text-white text-2xl font-bold mb-3">Vaga Garantida!</p>
               <p className="text-gray-400 text-sm leading-relaxed">Em breve você receberá as instruções de acesso no seu e-mail e WhatsApp.</p>
-              <button onClick={close} className="mt-8 button text-black font-bold uppercase tracking-widest px-8 py-3 text-sm">
+              <button onClick={close} className="mt-8 border border-white/20 text-white font-bold uppercase tracking-widest px-8 py-3 text-sm rounded-lg hover:bg-white/5 transition-colors">
                 FECHAR
               </button>
             </div>
@@ -65,8 +62,8 @@ export default function LeadModal() {
             <>
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <p className="gradient-text text-xs font-bold uppercase tracking-widest mb-1">Imersão ARI</p>
-                  <h2 className="text-white font-cormorant text-2xl font-bold leading-tight">Garanta sua vaga</h2>
+                  <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">Imersão ARI</p>
+                  <h2 className="text-white text-2xl font-bold leading-tight">Garanta sua vaga</h2>
                 </div>
                 <button onClick={close} className="text-gray-500 hover:text-white transition-colors text-lg leading-none mt-1">✕</button>
               </div>
@@ -79,7 +76,7 @@ export default function LeadModal() {
                     name="nome"
                     value={form.nome}
                     onChange={e => setForm(f => ({ ...f, nome: e.target.value }))}
-                    className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-600 transition-colors"
+                    className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-white/30 transition-colors"
                     placeholder="João Silva"
                   />
                 </div>
@@ -93,7 +90,7 @@ export default function LeadModal() {
                     title="Digite um e-mail válido"
                     value={form.email}
                     onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-                    className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-600 transition-colors"
+                    className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-white/30 transition-colors"
                     placeholder="joao@email.com"
                   />
                 </div>
@@ -106,7 +103,7 @@ export default function LeadModal() {
                     maxLength={11}
                     value={form.whatsapp}
                     onChange={e => setForm(f => ({ ...f, whatsapp: e.target.value }))}
-                    className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-600 transition-colors"
+                    className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-white/30 transition-colors"
                     placeholder="(48) 9 9999-9999"
                   />
                 </div>
@@ -118,7 +115,7 @@ export default function LeadModal() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="button text-black font-bold uppercase tracking-widest px-8 py-4 text-sm mt-1 disabled:opacity-50"
+                  className="w-full bg-black border border-white/20 text-white font-bold uppercase tracking-widest px-8 py-4 text-sm mt-1 disabled:opacity-50 rounded-lg hover:bg-white/5 transition-colors"
                 >
                   {loading ? "ENVIANDO..." : "GARANTIR MINHA VAGA"}
                 </button>

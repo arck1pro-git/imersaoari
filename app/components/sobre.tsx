@@ -21,7 +21,7 @@ export default function Sobre() {
     </div>
 
     <div className="rounded-sm aspect-[4/5] overflow-hidden">
-      <img src="/fabrhicio.jpg" alt="Fabrício ARI" className="w-full h-full object-cover object-top" />
+      <img src="/fabrhicio.webp" alt="Fabrício ARI" className="w-full h-full object-cover object-top" />
     </div>
   </div>
 
