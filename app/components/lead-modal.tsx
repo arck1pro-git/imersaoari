@@ -23,24 +23,20 @@ export default function LeadModal() {
     setForm({ nome: "", email: "", whatsapp: "" });
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setLoading(true);
-    setError(false);
     const phone = form.whatsapp.replace(/\D/g, "");
     const params = new URLSearchParams({ nome: form.nome, email: form.email, whatsapp: "55" + phone });
+    fetch(`${API}&${params.toString()}`, { method: "POST", keepalive: true }).catch(() => {});
+    const hotmart = new URL("https://pay.hotmart.com/X105745330Y");
+    hotmart.searchParams.set("bid", "1778252969085");
+    hotmart.searchParams.set("name", form.nome);
+    hotmart.searchParams.set("email", form.email);
+    hotmart.searchParams.set("phone", phone);
     try {
-      await fetch(`${API}&${params.toString()}`, { method: "POST" });
-      const hotmart = new URL("https://pay.hotmart.com/X105745330Y");
-      hotmart.searchParams.set("bid", "1778252969085");
-      hotmart.searchParams.set("name", form.nome);
-      hotmart.searchParams.set("email", form.email);
-      hotmart.searchParams.set("phone", phone);
-      window.location.href = hotmart.toString();
+      window.location.assign(hotmart.toString());
     } catch {
-      setError(true);
-    } finally {
-      setLoading(false);
+      window.location.href = hotmart.toString();
     }
   }
 
@@ -93,6 +89,8 @@ export default function LeadModal() {
                     required
                     name="email"
                     type="email"
+                    pattern="[\w+\-.%]+@[\w\-.]+\.[A-Za-z]{2,}"
+                    title="Digite um e-mail válido"
                     value={form.email}
                     onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
                     className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-600 transition-colors"
