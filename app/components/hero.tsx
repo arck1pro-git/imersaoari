@@ -7,7 +7,7 @@ export default function Hero() {
 
       {/* Imagem de fundo — apenas desktop */}
       <div className="absolute inset-0 z-0 hidden sm:block">
-        <Image src="/hero.webp" alt="" width={1920} height={1080} className="absolute top-0 right-[-40px] h-full w-auto" priority />
+        <Image src="/hero.webp" alt="" width={1920} height={1080} className="absolute top-0 right-[10%] h-full w-auto" priority />
         <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to right, #000000 30%, rgba(0,0,0,0.6) 55%, rgba(0,0,0,0.1) 75%, transparent 100%)" }} />
       </div>
 
