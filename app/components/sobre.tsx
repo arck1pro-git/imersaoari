@@ -9,7 +9,7 @@ export default function Sobre() {
       <h2 className="lg:text-6xl text-4xl font-cormorant font-bold mb-6">
         Eu sou <span className="gradient-text">Fabhricio ARI.</span>
       </h2>
-      <div className="space-y-4 text-gray-300 text-sm leading-relaxed">
+      <div className="space-y-4 text-gray-300 text-xs  leading-relaxed">
         <p>Comecei no mercado imobiliário em 2006. Passei 20 anos mergulhado na indústria da construção civil.</p>
         <p>Não foi só teoria. Foi canteiro, reunião com investidor, cronograma apertado, obra atrasada, cliente nervoso, fornecedor cobrando.</p>
         <p>Foi ali, no dia a dia, que eu entendi o que realmente move um empreendimento: não é só concreto e planta. É gente. É dinheiro circulando. É timing. É entregar o que promete.</p>

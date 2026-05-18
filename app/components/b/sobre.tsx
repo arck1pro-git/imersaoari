@@ -2,13 +2,13 @@ import { Building2, MapPin, Briefcase } from "lucide-react";
 
 function TextBlock() {
   return (
-    <div className="relative z-10 rounded-lg p-8 flex flex-col justify-center -translate-y-12 -ml-6 aspect-square hover-scale" style={{ background: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.07) 0%, transparent 55%), rgba(0,0,0,0.78)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", border: "1px solid rgba(255,255,255,0.25)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.2), inset 1px 0 0 rgba(255,255,255,0.1)" }}>
+    <div className="relative z-10 rounded-lg p-6 flex flex-col justify-center -translate-y-12 ml-6 aspect-[4/5] hover-scale" style={{ background: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.07) 0%, transparent 55%), rgba(0,0,0,0.78)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", border: "1px solid rgba(255,255,255,0.25)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.2), inset 1px 0 0 rgba(255,255,255,0.1)" }}>
       <div className="relative flex gap-4">
         <div className="w-[3px] rounded-full shrink-0" style={{ background: "linear-gradient(to bottom, #1e3a8a, #2563eb 40%, #ffffff)" }} />
         <div>
           <p className="text-sm mb-2" style={{ color: "var(--marquee-blue)" }}>Incorporador e Investidor Imobiliário</p>
           <h3 className="text-2xl font-bold mb-5 text-white">FABHRICIO ARI</h3>
-          <div className="space-y-3 text-gray-400 text-sm leading-relaxed">
+          <div className="space-y-3 text-gray-400 text-xs leading-relaxed">
             <p>Comecei no mercado imobiliário em 2006. Passei 20 anos mergulhado na indústria da construção civil.</p>
             <p>Não foi só teoria. Foi canteiro, reunião com investidor, cronograma apertado, obra atrasada, cliente nervoso, fornecedor cobrando.</p>
             <p>Foi ali, no dia a dia, que eu entendi o que realmente move um empreendimento: não é só concreto e planta. É gente. É dinheiro circulando. É timing. É entregar o que promete.</p>
