@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Sobre() {
 
     return (
@@ -21,7 +23,7 @@ export default function Sobre() {
     </div>
 
     <div className="rounded-sm aspect-[4/5] overflow-hidden">
-      <img src="/fabrhicio.webp" alt="Fabrício ARI" className="w-full h-full object-cover object-top" />
+      <Image src="/fabrhicio.webp" alt="Fabrício ARI" width={600} height={750} className="w-full h-full object-cover object-top" />
     </div>
   </div>
 

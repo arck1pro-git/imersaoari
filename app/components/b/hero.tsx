@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Calendar, Monitor } from "lucide-react";
 import GarantirVagaBtn from "./garantir-vaga-btn";
 
@@ -36,7 +37,7 @@ export default function Hero() {
 
       {/* Imagem acima do conteúdo — apenas mobile */}
       <div className="block lg:hidden w-full relative z-10 mt-8">
-        <img src="/herob.webp" alt="" className="w-full h-72 object-cover object-top" />
+        <Image src="/herob.webp" alt="" width={800} height={450} className="w-full h-72 object-cover object-top" priority />
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-black" />
       </div>
 

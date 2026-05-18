@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ModalTrigger from "./modal-trigger";
 
 export default function Hero() {
@@ -6,7 +7,7 @@ export default function Hero() {
 
       {/* Imagem de fundo — apenas desktop */}
       <div className="absolute inset-0 z-0 hidden sm:block">
-        <img src="/hero.webp" alt="" className="absolute top-0 right-[-40px] h-full w-auto" />
+        <Image src="/hero.webp" alt="" width={1920} height={1080} className="absolute top-0 right-[-40px] h-full w-auto" priority />
         <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to right, #000000 30%, rgba(0,0,0,0.6) 55%, rgba(0,0,0,0.1) 75%, transparent 100%)" }} />
       </div>
 
@@ -32,7 +33,7 @@ export default function Hero() {
 
       {/* Imagem acima do conteúdo — apenas mobile */}
       <div className="block lg:hidden w-full relative z-10">
-        <img src="/hero.webp" alt="" className="w-full h-72 object-cover object-top" />
+        <Image src="/hero.webp" alt="" width={800} height={450} className="w-full h-72 object-cover object-top" priority />
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-black" />
       </div>
 
