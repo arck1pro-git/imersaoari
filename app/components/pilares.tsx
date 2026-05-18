@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import GarantirVagaBtn from "./garantir-vaga-btn";
 
 const PILARES = [
   {
@@ -170,6 +171,10 @@ export default function Pilares() {
       </div>
       <div className="hidden sm:block">
         <DesktopCarousel />
+      </div>
+
+      <div className="flex justify-center mt-10 px-6">
+        <GarantirVagaBtn />
       </div>
     </section>
   );

@@ -92,7 +92,7 @@ export default function Perguntas() {
           <p className="text-lg lg:text-2xl font-semibold gradient-text-blue mb-8">
             A pergunta é: você vai estar?
           </p>
-          <GarantirVagaBtn variant="blue" className="mx-auto" />
+          <GarantirVagaBtn className="mx-auto" />
         </div>
       </div>
     </section>

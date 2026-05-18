@@ -1,4 +1,5 @@
 import Image from "next/image";
+import GarantirVagaBtn from "./garantir-vaga-btn";
 
 export default function Sobre() {
 
@@ -25,6 +26,10 @@ export default function Sobre() {
     <div className="rounded-sm aspect-[4/5] overflow-hidden">
       <Image src="/fabrhicio.webp" alt="Fabrício ARI" width={600} height={750} className="w-full h-full object-cover object-top" />
     </div>
+  </div>
+
+  <div className="flex justify-center mt-10">
+    <GarantirVagaBtn />
   </div>
 
 </section>

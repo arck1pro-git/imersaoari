@@ -1,3 +1,5 @@
+import GarantirVagaBtn from "./garantir-vaga-btn";
+
 export default function Problem() {
     return (
 <section className="text-white lg:py-12 py-4 px-6">
@@ -13,9 +15,11 @@ export default function Problem() {
       <p>Investidor de verdade busca a multiplicação do seu capital. Mas provavelmente ninguém te ensinou a fazer isso, até agora!</p>
       <p>Participe da Imersão ARI, onde ensinaremos a estratégia definitiva para quem busca dobrar seu capital com a segurança de ativos reais.</p>
     </div>
-  </div>
 
-  
+    <div className="flex justify-center mt-10">
+      <GarantirVagaBtn />
+    </div>
+  </div>
 </section>
     )
 }

@@ -1,3 +1,5 @@
+import GarantirVagaBtn from "./garantir-vaga-btn";
+
 export default function garantia() {
 
     return(
@@ -34,6 +36,9 @@ export default function garantia() {
         Sem perguntas, sem burocracia. O risco é todo meu.
       </p>
     </div>
+  </div>
+
+  <div className="flex justify-center mt-10">
   </div>
 </section>
     )

@@ -1,4 +1,5 @@
 import { Calendar, Monitor, Timer, Mic, BarChart2 } from "lucide-react";
+import GarantirVagaBtn from "./garantir-vaga-btn";
 
 export default function Evento() {
 
@@ -35,6 +36,10 @@ export default function Evento() {
       </div>
     </div>
     </div>
+  </div>
+
+  <div className="flex justify-center mt-10">
+    <GarantirVagaBtn />
   </div>
 </section>
     )

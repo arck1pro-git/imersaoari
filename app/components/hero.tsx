@@ -7,7 +7,7 @@ export default function Hero() {
 
       {/* Imagem de fundo — apenas desktop */}
       <div className="absolute inset-0 z-0 hidden sm:block">
-        <Image src="/hero.webp" alt="" width={1920} height={1080} className="absolute top-0 right-[-40px] h-full w-auto" priority />
+        <Image src="/hero.webp" alt="" fill sizes="100vw" className="object-cover object-right-top" priority />
         <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to right, #000000 30%, rgba(0,0,0,0.6) 55%, rgba(0,0,0,0.1) 75%, transparent 100%)" }} />
       </div>
 
@@ -43,7 +43,7 @@ export default function Hero() {
           <span className="inline-block border border-zinc-900 rounded-full text-white/20 text-xs uppercase px-4 py-1 lg:mb-6 font-semibold">
             Imersão Online Exclusiva | Vagas Limitadas
           </span>
-          <h1 className="text-white font-cormorant text-6xl sm:text-8xl font-light leading-tight mb-2 ">
+          <h1 className="text-white font-cormorant text-6xl sm:text-8xl font-bold leading-tight mb-2 ">
             IMERSÃO<br />
             <span className="gradient-text font-bold">ARI</span>
           </h1>
@@ -56,7 +56,7 @@ export default function Hero() {
           <p className="gradient-text lg:block hidden text-xs mb-4">
             26, 27 e 28 de maio às 20h &nbsp;·&nbsp; 100% online e ao vivo &nbsp;·&nbsp; R$ 89,00
           </p>
-          <ModalTrigger className="button text-black font-bold uppercase tracking-widest px-10 py-4 text-sm inline-block">
+          <ModalTrigger className="button-sun font-bold uppercase tracking-widest px-10 py-4 text-sm inline-block">
             GARANTIR MINHA VAGA
           </ModalTrigger>
         </div>

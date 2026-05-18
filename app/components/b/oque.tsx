@@ -1,3 +1,5 @@
+import GarantirVagaBtn from "./garantir-vaga-btn";
+
 export default function Oque() {
   return (
     <section className="bg-black py-16 lg:py-24 px-6 font-poppins text-white">
@@ -19,6 +21,9 @@ export default function Oque() {
             <span className="gradient-text-blue font-semibold">seleção dos empreendimentos</span> ao{" "}
             <span className="gradient-text-blue font-semibold">recebimento do lucro.</span>
           </p>
+        </div>
+        <div className="flex justify-center mt-10">
+          <GarantirVagaBtn />
         </div>
       </div>
     </section>

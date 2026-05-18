@@ -46,7 +46,7 @@ export default function RootLayout({
     <html
       suppressHydrationWarning
       lang="en"
-      className={` ${saira.variable} ${cormorantGaramond.variable} ${poppins.variable} h-full antialiased`}
+      className={` ${saira.variable} ${cormorantGaramond.variable} ${poppins.variable} antialiased`}
     >
       <head>
         {/* Google Tag Manager */}

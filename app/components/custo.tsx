@@ -15,7 +15,7 @@ export default function Custo() {
       </div>
 
       <div className="mt-10">
-        <ModalTrigger className="button text-black font-bold uppercase tracking-widest text-sm px-10 py-4">
+        <ModalTrigger className="button-sun font-bold uppercase tracking-widest text-sm px-10 py-4">
           GARANTIR MINHA VAGA
         </ModalTrigger>
       </div>

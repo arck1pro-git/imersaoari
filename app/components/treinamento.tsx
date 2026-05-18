@@ -1,3 +1,5 @@
+import GarantirVagaBtn from "./garantir-vaga-btn";
+
 export default function Treinamento() {
 
     return (
@@ -14,6 +16,10 @@ export default function Treinamento() {
       <p>
         Em 3 dias de imersão online e ao vivo, eu vou guiar você pessoalmente pelo passo a passo do modelo de investimento ARI, revelando como transformar sua carteira atual em um motor de multiplicação do seu capital.
       </p>
+    </div>
+
+    <div className="flex justify-center mt-10">
+      <GarantirVagaBtn />
     </div>
   </div>
 </section>

@@ -1,4 +1,5 @@
 import { DollarSign, TrendingUp, Clock, X } from "lucide-react";
+import GarantirVagaBtn from "./garantir-vaga-btn";
 
 export default function Parequem() {
   return (
@@ -61,6 +62,10 @@ export default function Parequem() {
               </p>
             </div>
           </div>
+        </div>
+
+        <div className="relative z-10 flex justify-center mt-10">
+          <GarantirVagaBtn />
         </div>
       </div>
     </section>

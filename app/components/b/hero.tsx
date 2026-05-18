@@ -64,7 +64,8 @@ export default function Hero() {
 
           {/* Prova de resultado */}
           <p className="text-gray-400 mb-8 lg:block hidden leading-relaxed">
-            O Método que fez um time de 12 arquitetos venderem 47 unidades em 8 meses — com rendimentos de até 3% ao mês, livres de IR, investindo em incorporação imobiliária no litoral de SC.
+            Aprenda em 3 dias o método real de investimento em incorporação imobiliária no litoral catarinense que pode dobrar seu capital em 3 anos.
+            Ao vivo. Com Fabhricio ARI.
           </p>
 
           {/* De/Por + CTA */}
@@ -73,7 +74,7 @@ export default function Hero() {
               <span className="line-through mr-2">De R$ 297,00</span>
               <span className="gradient-text-blue font-bold text-base">por R$ 89,00</span>
             </p>
-            <GarantirVagaBtn className="w-full" variant="blue" />
+            <GarantirVagaBtn className="w-full" />
           </div>
 
           {/* Detalhes logísticos */}

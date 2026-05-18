@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Building2, MapPin, Briefcase } from "lucide-react";
+import GarantirVagaBtn from "./garantir-vaga-btn";
 
 function TextBlock() {
   return (
@@ -101,6 +102,10 @@ export default function Sobre() {
       {/* Mobile */}
       <div className="block lg:hidden max-w-md mx-auto">
         <MobileSobre />
+      </div>
+
+      <div className="flex justify-center mt-10">
+        <GarantirVagaBtn />
       </div>
     </section>
   );

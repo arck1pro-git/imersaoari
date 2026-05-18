@@ -14,7 +14,7 @@ export default function Valor() {
             <p className="text-gray-400 text-base mt-2">ou 12x de R$ 9,20 no cartão</p>
           </div>
 
-          <GarantirVagaBtn className="mb-4" variant="blue" />
+          <GarantirVagaBtn className="mb-4" />
 
           <p className="text-gray-500 text-xs text-center mb-8">
             Pagamento via Pix ou cartão de crédito · Acesso enviado por e-mail após confirmação
