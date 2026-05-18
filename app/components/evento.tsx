@@ -36,6 +36,9 @@ export default function Evento() {
       </div>
     </div>
     </div>
+    <p className="text-gray-400 text-sm leading-relaxed m-6">
+      Este é o método que sustenta os investimentos dos nossos maiores cotistas. Pela primeira vez, você pode acessar esse conhecimento de forma estruturada e profissional.
+    </p>
   </div>
 
   <div className="flex justify-center mt-10">

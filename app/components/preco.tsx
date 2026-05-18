@@ -3,9 +3,7 @@ export default function Preco() {
     return (
 <section className="text-white py-12 px-6 text-center">
   <div className="max-w-2xl mx-auto">
-    <p className="text-gray-400 text-sm leading-relaxed mb-8">
-      Este é o método que sustenta os investimentos dos nossos maiores cotistas. Pela primeira vez, você pode acessar esse conhecimento de forma estruturada e profissional.
-    </p>
+    
 
     
 
