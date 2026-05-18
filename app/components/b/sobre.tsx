@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Building2, MapPin, Briefcase } from "lucide-react";
 
 function TextBlock() {
@@ -27,7 +28,7 @@ function PhotoBlock() {
   return (
     <div className="relative rounded-lg overflow-hidden aspect-square">
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent z-10" />
-      <div className="w-full h-full bg-cover bg-top" style={{ backgroundImage: "url('/fabrhicio.webp')" }} />
+      <Image src="/fabrhicio.webp" alt="Fabrício ARI" fill className="object-cover object-top" />
       <div className="absolute bottom-4 left-4 right-4 z-20 flex flex-col gap-2">
         <div className="flex items-center gap-2 px-4 py-2 w-fit rounded-lg hover-scale" style={{ background: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.08) 0%, transparent 60%), rgba(0,0,0,0.6)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.15)" }}>
           <Building2 className="w-4 h-4 shrink-0" style={{ color: "var(--marquee-blue)" }} />
@@ -52,7 +53,7 @@ function MobileSobre() {
       {/* Foto quadrada menor */}
       <div className="relative w-40 aspect-square rounded-lg overflow-hidden mx-auto">
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
-        <div className="w-full h-full bg-cover bg-top" style={{ backgroundImage: "url('/fabrhicio.webp')" }} />
+        <Image src="/fabrhicio.webp" alt="Fabrício ARI" fill className="object-cover object-top" />
       </div>
       {/* Texto */}
       <div className="rounded-lg p-6" style={{ background: "rgba(0,0,0,0.85)", border: "1px solid rgba(255,255,255,0.12)" }}>

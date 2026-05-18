@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const PILARES = [
@@ -34,7 +35,7 @@ const SPEED = 0.8;
 function CardContent({ pilar }: { pilar: typeof PILARES[0] }) {
   return (
     <div className="relative overflow-hidden aspect-[4/5]" style={{ border: "1px solid rgba(255,255,255,0.12)" }}>
-      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${pilar.image}')` }} />
+      <Image src={pilar.image} alt={pilar.label} fill className="object-cover object-center" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
       <div className="absolute bottom-4 left-4 right-4 z-10 rounded-lg p-4 font-poppins"
         style={{
@@ -66,7 +67,7 @@ function MobileKanban() {
   return (
     <div className="px-6">
       <div key={index} className="rounded-lg overflow-hidden fade-in relative aspect-[4/5]" style={{ border: "1px solid rgba(255,255,255,0.12)" }}>
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${p.image}')` }} />
+        <Image src={p.image} alt={p.label} fill className="object-cover object-center" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
         <div className="absolute bottom-4 left-4 right-4 z-10 rounded-lg p-4"
           style={{
