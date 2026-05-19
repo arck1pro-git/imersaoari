@@ -1,9 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 const API = process.env.NEXT_PUBLIC_SPRINTHUB_HOOK_URL!;
 
-export default function LeadModal() {
+function LeadModalInner() {
+  const searchParams = useSearchParams();
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState({ nome: "", email: "", whatsapp: "" });
   const [loading, setLoading] = useState(false);
@@ -26,7 +28,10 @@ export default function LeadModal() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const phone = form.whatsapp.replace(/\D/g, "");
-    const params = new URLSearchParams({ nome: form.nome, email: form.email, whatsapp: "55" + phone });
+    const utm_source = searchParams.get("utm_source") ?? "";
+    const payload: Record<string, string> = { nome: form.nome, email: form.email, whatsapp: "55" + phone };
+    if (utm_source) payload.utm_source = utm_source;
+    const params = new URLSearchParams(payload);
     fetch(`${API}&${params.toString()}`, { method: "POST", keepalive: true }).catch(() => {});
     const hotmart = new URL("https://pay.hotmart.com/X105745330Y");
     hotmart.searchParams.set("bid", "1778252969085");
@@ -125,5 +130,13 @@ export default function LeadModal() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function LeadModal() {
+  return (
+    <Suspense fallback={null}>
+      <LeadModalInner />
+    </Suspense>
   );
 }

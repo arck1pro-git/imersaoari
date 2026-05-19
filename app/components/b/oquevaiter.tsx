@@ -40,9 +40,7 @@ function CardContent({ pilar }: { pilar: typeof PILARES[0] }) {
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
       <div className="absolute bottom-4 left-4 right-4 z-10 rounded-lg p-4 font-poppins"
         style={{
-          background: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.07) 0%, transparent 60%), rgba(0,0,0,0.6)",
-          backdropFilter: "blur(14px)",
-          WebkitBackdropFilter: "blur(14px)",
+          background: "rgba(0,0,0,0.82)",
           border: "1px solid rgba(255,255,255,0.2)",
           boxShadow: "inset 0 1px 0 rgba(255,255,255,0.15), inset 1px 0 0 rgba(255,255,255,0.08)",
         }}
@@ -72,9 +70,7 @@ function MobileKanban() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
         <div className="absolute bottom-4 left-4 right-4 z-10 rounded-lg p-4"
           style={{
-            background: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.07) 0%, transparent 60%), rgba(0,0,0,0.6)",
-            backdropFilter: "blur(14px)",
-            WebkitBackdropFilter: "blur(14px)",
+            background: "rgba(0,0,0,0.82)",
             border: "1px solid rgba(255,255,255,0.2)",
             boxShadow: "inset 0 1px 0 rgba(255,255,255,0.15), inset 1px 0 0 rgba(255,255,255,0.08)",
           }}

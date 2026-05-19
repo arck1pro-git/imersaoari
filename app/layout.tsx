@@ -1,17 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Saira, Cormorant_Garamond, Poppins } from "next/font/google";
+import { Saira, Cormorant_Garamond, Poppins } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import SmoothScroll from "./components/smooth-scroll";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import ParamTracker from "./components/param-tracker";
 
 const saira = Saira({
   variable: "--font-saira",
@@ -56,6 +48,9 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning className="bg-black font-saira-thin min-h-full flex flex-col">
         <SmoothScroll />
+        <Suspense fallback={null}>
+          <ParamTracker />
+        </Suspense>
         {children}
       </body>
     </html>

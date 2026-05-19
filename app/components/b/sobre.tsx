@@ -4,7 +4,7 @@ import GarantirVagaBtn from "./garantir-vaga-btn";
 
 function TextBlock() {
   return (
-    <div className="relative z-10 rounded-lg p-6 flex flex-col justify-center -translate-y-12 ml-6 aspect-[4/5] hover-scale" style={{ background: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.07) 0%, transparent 55%), rgba(0,0,0,0.78)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", border: "1px solid rgba(255,255,255,0.25)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.2), inset 1px 0 0 rgba(255,255,255,0.1)" }}>
+    <div className="relative z-10 rounded-lg p-6 flex flex-col justify-center -translate-y-12 ml-6 aspect-[4/5] hover-scale" style={{ background: "rgba(0,0,0,0.88)", border: "1px solid rgba(255,255,255,0.25)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.2), inset 1px 0 0 rgba(255,255,255,0.1)" }}>
       <div className="relative flex gap-4">
         <div className="w-[3px] rounded-full shrink-0" style={{ background: "linear-gradient(to bottom, #1e3a8a, #2563eb 40%, #ffffff)" }} />
         <div>
@@ -31,15 +31,15 @@ function PhotoBlock() {
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent z-10" />
       <Image src="/fabrhicio.webp" alt="Fabrício ARI" fill className="object-cover object-top" />
       <div className="absolute bottom-4 left-4 right-4 z-20 flex flex-col gap-2">
-        <div className="flex items-center gap-2 px-4 py-2 w-fit rounded-lg hover-scale" style={{ background: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.08) 0%, transparent 60%), rgba(0,0,0,0.6)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.15)" }}>
+        <div className="flex items-center gap-2 px-4 py-2 w-fit rounded-lg hover-scale" style={{ background: "rgba(0,0,0,0.82)", border: "1px solid rgba(255,255,255,0.15)" }}>
           <Building2 className="w-4 h-4 shrink-0" style={{ color: "var(--marquee-blue)" }} />
           <span className="text-xs font-medium text-white">+350 Empreendimentos desenvolvidos</span>
         </div>
-        <div className="flex items-center gap-2 px-4 py-2 w-fit rounded-lg hover-scale" style={{ background: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.08) 0%, transparent 60%), rgba(0,0,0,0.6)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.15)" }}>
+        <div className="flex items-center gap-2 px-4 py-2 w-fit rounded-lg hover-scale" style={{ background: "rgba(0,0,0,0.82)", border: "1px solid rgba(255,255,255,0.15)" }}>
           <MapPin className="w-4 h-4 shrink-0" style={{ color: "var(--marquee-blue)" }} />
           <span className="text-xs font-medium text-white">+80 Terrenos negociados</span>
         </div>
-        <div className="flex items-center gap-2 px-4 py-2 w-fit rounded-lg hover-scale" style={{ background: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.08) 0%, transparent 60%), rgba(0,0,0,0.6)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.15)" }}>
+        <div className="flex items-center gap-2 px-4 py-2 w-fit rounded-lg hover-scale" style={{ background: "rgba(0,0,0,0.82)", border: "1px solid rgba(255,255,255,0.15)" }}>
           <Briefcase className="w-4 h-4 shrink-0" style={{ color: "var(--marquee-blue)" }} />
           <span className="text-xs font-medium text-white">+50 Incorporadoras assessoradas</span>
         </div>
