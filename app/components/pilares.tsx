@@ -38,7 +38,7 @@ function CardContent({ pilar }: { pilar: typeof PILARES[0] }) {
     <>
       {pilar.image && (
         <div className="w-full h-64 overflow-hidden relative">
-          <Image src={pilar.image} alt={pilar.label} fill className="object-cover" />
+          <Image src={pilar.image} alt={pilar.label} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover" />
         </div>
       )}
       <div className="p-6 flex flex-col gap-4 flex-1">
@@ -68,7 +68,7 @@ function MobileKanban() {
       >
         <div key={index} className="bg-zinc-900 rounded-[6px] overflow-hidden flex flex-col h-[460px] fade-in">
           <div className="w-full h-64 relative flex-shrink-0">
-            <Image src={p.image ?? ""} alt={p.label} fill className="object-cover" />
+            <Image src={p.image ?? ""} alt={p.label} fill sizes="100vw" className="object-cover" />
           </div>
           <div className="p-6 flex flex-col gap-4 flex-1 overflow-hidden">
             <p className="gradient-text text-xs font-bold uppercase tracking-widest">{p.label}</p>

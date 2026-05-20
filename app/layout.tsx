@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Saira, Cormorant_Garamond, Poppins } from "next/font/google";
 import { Suspense } from "react";
+import Script from "next/script";
 import "./globals.css";
 import SmoothScroll from "./components/smooth-scroll";
 import ParamTracker from "./components/param-tracker";
@@ -37,16 +38,13 @@ export default function RootLayout({
   return (
     <html
       suppressHydrationWarning
-      lang="en"
+      lang="pt-BR"
       className={` ${saira.variable} ${cormorantGaramond.variable} ${poppins.variable} antialiased`}
     >
-      <head>
-        {/* Google Tag Manager */}
-        <script dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://load.tss.arck1pro.com.br/7msfshruhgdg.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','8t=DgBaLyE%2FRUY%2FPFFeMyQmVRFZVUZEVAwdWgUVCx5DGAEISgQHGFwKAQ%3D%3D');` }} />
-        <script src="/countdown.js" async></script>
-        <script src="/scroll-effect.js" async></script>
-      </head>
       <body suppressHydrationWarning className="bg-black font-saira-thin min-h-full flex flex-col">
+        <Script id="gtm" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://load.tss.arck1pro.com.br/7msfshruhgdg.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','8t=DgBaLyE%2FRUY%2FPFFeMyQmVRFZVUZEVAwdWgUVCx5DGAEISgQHGFwKAQ%3D%3D');` }} />
+        <Script src="/countdown.js" strategy="afterInteractive" />
+        <Script src="/scroll-effect.js" strategy="afterInteractive" />
         <SmoothScroll />
         <Suspense fallback={null}>
           <ParamTracker />
