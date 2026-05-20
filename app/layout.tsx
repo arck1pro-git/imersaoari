@@ -11,6 +11,7 @@ const saira = Saira({
   subsets: ["latin"],
   weight: ["300", "400", "700"],
   display: "swap",
+  preload: false,
 });
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -18,6 +19,7 @@ const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "700"],
   display: "swap",
+  preload: false,
 });
 
 const poppins = Poppins({
