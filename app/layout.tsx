@@ -10,18 +10,21 @@ const saira = Saira({
   variable: "--font-saira",
   subsets: ["latin"],
   weight: ["300", "400", "700"],
+  display: "swap",
 });
 
 const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant",
   subsets: ["latin"],
   weight: ["300", "400", "700"],
+  display: "swap",
 });
 
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["300", "400", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {

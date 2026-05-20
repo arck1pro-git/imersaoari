@@ -36,7 +36,7 @@ const SPEED = 0.8;
 function CardContent({ pilar }: { pilar: typeof PILARES[0] }) {
   return (
     <div className="relative overflow-hidden aspect-[4/5]" style={{ border: "1px solid rgba(255,255,255,0.12)" }}>
-      <Image src={pilar.image} alt={pilar.label} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover object-center" />
+      <Image src={pilar.image} alt={pilar.label} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" loading="lazy" className="object-cover object-center" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
       <div className="absolute bottom-4 left-4 right-4 z-10 rounded-lg p-4 font-poppins"
         style={{

@@ -54,7 +54,7 @@ function MobileSobre() {
       {/* Foto quadrada menor */}
       <div className="relative w-40 aspect-square rounded-lg overflow-hidden mx-auto">
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
-        <Image src="/fabrhicio.webp" alt="Fabrício ARI" fill sizes="160px" className="object-cover object-top" />
+        <Image src="/fabrhicio.webp" alt="Fabrício ARI" fill sizes="160px" loading="lazy" className="object-cover object-top" />
       </div>
       {/* Texto */}
       <div className="rounded-lg p-6" style={{ background: "rgba(0,0,0,0.85)", border: "1px solid rgba(255,255,255,0.12)" }}>

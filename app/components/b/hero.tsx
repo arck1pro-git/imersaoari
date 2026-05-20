@@ -27,17 +27,14 @@ export default function Hero() {
       </div>
 
       {/* Imagem de fundo — apenas desktop */}
-      <div
-        className="absolute inset-0 bg-cover bg-center hidden lg:block"
-        style={{ backgroundImage: "url('/herob.webp')" }}
-      />
-
-      {/* Gradiente preto da esquerda — apenas desktop */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/90 via-black/50 to-transparent hidden lg:block" />
+      <div className="absolute inset-0 z-0 hidden lg:block">
+        <Image src="/herob.webp" alt="" fill sizes="100vw" priority className="object-cover object-center" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
+      </div>
 
       {/* Imagem acima do conteúdo — apenas mobile */}
       <div className="block lg:hidden w-full relative z-10 mt-8">
-        <Image src="/herob.webp" alt="" width={800} height={450} className="w-full h-72 object-cover object-top" priority />
+        <Image src="/herob.webp" alt="" width={800} height={450} sizes="(max-width: 768px) 100vw, 800px" className="w-full h-72 object-cover object-top" priority />
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-black" />
       </div>
 
