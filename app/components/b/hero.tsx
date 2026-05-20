@@ -28,7 +28,7 @@ export default function Hero() {
 
       {/* Imagem de fundo — apenas desktop */}
       <div className="absolute inset-0 z-0 hidden lg:block">
-        <Image src="/herob.webp" alt="" fill sizes="100vw" priority className="object-cover object-center" />
+        <Image src="/herob.webp" alt="" fill sizes="100vw" className="object-cover object-center" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
       </div>
 
