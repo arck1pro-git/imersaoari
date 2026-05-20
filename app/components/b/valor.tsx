@@ -9,8 +9,8 @@ export default function Valor() {
         <div className="border-spin-blue rounded-xl hover-scale" style={{ padding: "6px" }}>
           <div className="rounded-xl px-6 pt-6 pb-8 text-center lg:px-24 lg:pt-10 lg:pb-24 relative z-10 bg-zinc-950" style={{ backgroundImage: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 40%, transparent 65%)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)" }}>
           <div className="mb-6">
-            <p className="text-gray-500 text-lg line-through mb-1">De R$ 297,00</p>
-            <p className="gradient-text-blue text-4xl lg:text-6xl shine-text font-bold">R$ 89,00</p>
+            <p className="text-gray-500 text-6xl line-through font-normal mb-0">R$ 899,90</p>
+            <p className="gradient-text-blue text-4xl lg:text-4xl shine-text font-bold">R$ 89,00</p>
             <p className="text-gray-400 text-base mt-2">ou 12x de R$ 9,20 no cartão</p>
           </div>
 

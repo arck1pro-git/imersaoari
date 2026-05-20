@@ -4,8 +4,9 @@ import LeadModal from "../components/lead-modal";
 import Sobre from "../components/b/sobre";
 import Parequem from "../components/b/paraquem";
 import Oque from "../components/b/oque";
-import OqueVaiTer from "../components/b/oquevaiter";
-import Perguntas from "../components/b/perguntas";
+import dynamic from "next/dynamic";
+const OqueVaiTer = dynamic(() => import("../components/b/oquevaiter"));
+const Perguntas = dynamic(() => import("../components/b/perguntas"));
 import Footer from "../components/b/footer";
 import Valor from "../components/b/valor";
 

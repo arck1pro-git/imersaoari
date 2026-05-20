@@ -120,7 +120,8 @@ function DesktopCarousel() {
     if (!cardWidth || cardWidth <= 0) return;
     posRef.current = 0;
     const oneSetWidth = PILARES.length * (cardWidth + GAP);
-    let visible = true;
+    let visible = false;
+    let started = false;
 
     function loop() {
       if (visible) {
@@ -132,12 +133,17 @@ function DesktopCarousel() {
     }
 
     const observer = new IntersectionObserver(
-      ([entry]) => { visible = entry.isIntersecting; },
+      ([entry]) => {
+        visible = entry.isIntersecting;
+        if (visible && !started) {
+          started = true;
+          frameRef.current = requestAnimationFrame(loop);
+        }
+      },
       { threshold: 0 }
     );
     if (containerRef.current) observer.observe(containerRef.current);
 
-    frameRef.current = requestAnimationFrame(loop);
     return () => {
       cancelAnimationFrame(frameRef.current);
       observer.disconnect();

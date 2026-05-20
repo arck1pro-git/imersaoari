@@ -13,7 +13,8 @@ export default function Preco() {
       <h2 className="text-4xl font-cormorant font-light text-white tracking-wide mb-1">
         IMERSÃO<br/><span className="gradient-text font-bold">ARI</span>
       </h2>
-      <p className="gradient-text font-cormorant text-5xl font-bold mt-4">R$ 89,00</p>
+      <p className="text-gray-500 text-6xl line-through font-normal mt-4 mb-0">R$ 899,90</p>
+      <p className="gradient-text text-5xl font-bold">R$ 89,00</p>
       <p className="text-white font-semibold mt-6">ou 12x de R$ 9,20</p>
       <p className="gradient-text font-semibold">Vagas limitadas para garantir a qualidade do suporte.</p>
     </div>
