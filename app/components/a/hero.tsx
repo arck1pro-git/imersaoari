@@ -32,7 +32,7 @@ export default function Hero() {
           </span>
           <h1 className="text-white font-montserrat text-6xl sm:text-8xl font-bold leading-tight mb-2 flex flex-col items-center lg:items-start">
             <span>IMERSÃO</span>
-            <Image src="/ari.webp" alt="ARI" width={320} height={120} className="max-h-24 sm:max-h-32 w-auto" priority />
+            <Image src="/ARI.webp" alt="ARI" width={320} height={120} className="max-h-24 sm:max-h-32 w-auto" priority />
           </h1>
           <div className="text-gray-300 text-sm hidden lg:block leading-relaxed mb-8 mt-6 space-y-3">
             <p>Existe um caminho muito inteligente e lucrativo que os grandes investidores usam e muitos nem sabem que existe: investir em um empreendimento antes mesmo da obra iniciar (na fase de incorporação).</p>
