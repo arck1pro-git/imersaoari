@@ -345,3 +345,23 @@ body {
   font-weight: 700;
 }
 
+/* Montserrat Font */
+.font-montserrat {
+  font-family: var(--font-montserrat, 'Montserrat', sans-serif);
+}
+
+.font-montserrat-thin {
+  font-family: var(--font-montserrat);
+  font-weight: 300;
+}
+
+.font-montserrat-normal {
+  font-family: var(--font-montserrat);
+  font-weight: 400;
+}
+
+.font-montserrat-bold {
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+}
+

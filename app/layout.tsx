@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Saira, Cormorant_Garamond, Poppins } from "next/font/google";
+import { Saira, Cormorant_Garamond, Poppins, Montserrat } from "next/font/google";
 import { Suspense } from "react";
 import Script from "next/script";
 import "./globals.css";
@@ -29,6 +29,14 @@ const poppins = Poppins({
   display: "swap",
 });
 
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+  display: "swap",
+  preload: false,
+});
+
 export const metadata: Metadata = {
   title: "Imersão ARI — Dobrar o Capital em 3 Anos",
   description: "Aprenda o método que dobra patrimônio em 3 anos com a solidez do mercado imobiliário catarinense.",
@@ -44,7 +52,7 @@ export default function RootLayout({
     <html
       suppressHydrationWarning
       lang="pt-BR"
-      className={` ${saira.variable} ${cormorantGaramond.variable} ${poppins.variable} antialiased`}
+      className={` ${saira.variable} ${cormorantGaramond.variable} ${poppins.variable} ${montserrat.variable} antialiased`}
     >
       <body suppressHydrationWarning className="bg-black font-saira-thin min-h-full flex flex-col">
         <Script id="gtm" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://load.tss.arck1pro.com.br/7msfshruhgdg.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','8t=DgBaLyE%2FRUY%2FPFFeMyQmVRFZVUZEVAwdWgUVCx5DGAEISgQHGFwKAQ%3D%3D');` }} />
