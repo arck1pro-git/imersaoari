@@ -45,11 +45,11 @@ export default function Hero() {
 
       {/* Conteúdo */}
       <div className="relative z-10 flex flex-1 items-center max-w-7xl mx-auto px-8 py-10 sm:py-20 w-full -mt-12">
-        <div className="w-full max-w-2xl text-center lg:text-left mx-auto lg:mx-0">
+        <div className="w-full max-w-2xl lg:max-w-3xl text-center lg:text-left mx-auto lg:mx-0">
           <span className="inline-block border border-zinc-900 rounded-full text-white/20 text-xs uppercase px-4 py-1 lg:mb-6 font-semibold">
             Imersão Online Exclusiva | Vagas Limitadas
           </span>
-          <h1 className="gradient-text font-carlasans text-7xl sm:text-9xl  leading-tight mb-2">
+          <h1 className="gradient-text font-carlasans text-8xl leading-tight mb-2">
             IMERSÃO ARI
           </h1>
           <div className="text-gray-300 text-base hidden lg:block leading-relaxed mb-8 mt-6 space-y-3">
