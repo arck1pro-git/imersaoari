@@ -1,6 +1,21 @@
 import Image from "next/image";
 import ModalTrigger from "../modal-trigger";
 
+const MARQUEE_TEXT = "O treinamento de investimento na etapa mais lucrativa do mercado imobiliário, que vai te ensinar como dobrar seu patrimônio nos próximos 3 anos.";
+
+function MarqueeTrack() {
+  return (
+    <div className="flex items-center shrink-0">
+      {Array.from({ length: 6 }).map((_, i) => (
+        <span key={i} className="flex items-center gap-6 px-6 whitespace-nowrap">
+          <span className="gradient-text font-semibold text-xs lg:text-sm">{MARQUEE_TEXT}</span>
+          <span className="gradient-text opacity-60">◆</span>
+        </span>
+      ))}
+    </div>
+  );
+}
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden flex flex-col lg:pt-24 font-montserrat">
@@ -11,11 +26,15 @@ export default function Hero() {
         <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to right, #000000 30%, rgba(0,0,0,0.6) 55%, rgba(0,0,0,0.1) 75%, transparent 100%)" }} />
       </div>
 
-      {/* Mensagem topo */}
-      <div className="text-white py-2 px-4 text-center fixed top-0 left-0 right-0 z-50" style={{ background: "#000000" }}>
-        <p className="gradient-text font-semibold text-xs lg:text-sm leading-snug">
-          O treinamento de investimento na etapa mais lucrativa do mercado imobiliário, que vai te ensinar como dobrar seu patrimônio nos próximos 3 anos.
-        </p>
+      {/* Marquee topo */}
+      <div className="fixed top-0 left-0 right-0 z-50 overflow-hidden py-2" style={{ background: "#000000" }}>
+        <div
+          className="animate-marquee flex items-center"
+          style={{ width: "max-content", willChange: "transform" }}
+        >
+          <MarqueeTrack />
+          <MarqueeTrack />
+        </div>
       </div>
 
       {/* Imagem acima do conteúdo — apenas mobile */}
@@ -30,11 +49,10 @@ export default function Hero() {
           <span className="inline-block border border-zinc-900 rounded-full text-white/20 text-xs uppercase px-4 py-1 lg:mb-6 font-semibold">
             Imersão Online Exclusiva | Vagas Limitadas
           </span>
-          <h1 className="text-white font-montserrat text-6xl sm:text-8xl font-bold leading-tight mb-2 flex flex-col items-center lg:items-start">
-            <span>IMERSÃO</span>
-            <Image src="/ARI.webp" alt="ARI" width={320} height={120} className="max-h-24 sm:max-h-32 w-auto" priority />
+          <h1 className="gradient-text font-carlasans text-7xl sm:text-9xl  leading-tight mb-2">
+            IMERSÃO ARI
           </h1>
-          <div className="text-gray-300 text-sm hidden lg:block leading-relaxed mb-8 mt-6 space-y-3">
+          <div className="text-gray-300 text-base hidden lg:block leading-relaxed mb-8 mt-6 space-y-3">
             <p>Existe um caminho muito inteligente e lucrativo que os grandes investidores usam e muitos nem sabem que existe: investir em um empreendimento antes mesmo da obra iniciar (na fase de incorporação).</p>
             <p>Na Imersão ARI, o Fabhricio ARI vai mostrar, passo a passo, como começar a investir no mercado imobiliário do litoral de Santa Catarina, a região que mais valoriza no Brasil.</p>
             <p>Será um treinamento online para você aprender o método para obter retornos de até 3% ao mês, totalmente livres de Imposto de Renda.</p>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Saira, Cormorant_Garamond, Poppins, Montserrat } from "next/font/google";
+import localFont from "next/font/local";
 import { Suspense } from "react";
 import Script from "next/script";
 import "./globals.css";
@@ -37,6 +38,17 @@ const montserrat = Montserrat({
   preload: false,
 });
 
+const carlaSans = localFont({
+  src: [
+    { path: "../public/fonts/carlasans/carlasanslight-BF68bfa40288ba0.ttf", weight: "300", style: "normal" },
+    { path: "../public/fonts/carlasans/carlasansregular-BF68bfa40294322.ttf", weight: "400", style: "normal" },
+    { path: "../public/fonts/carlasans/carlasanssemibold-BF68bfa4027b1d1.ttf", weight: "600", style: "normal" },
+    { path: "../public/fonts/carlasans/carlasansbold-BF68bfa40208569.ttf", weight: "700", style: "normal" },
+  ],
+  variable: "--font-carlasans",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Imersão ARI — Dobrar o Capital em 3 Anos",
   description: "Aprenda o método que dobra patrimônio em 3 anos com a solidez do mercado imobiliário catarinense.",
@@ -52,7 +64,7 @@ export default function RootLayout({
     <html
       suppressHydrationWarning
       lang="pt-BR"
-      className={` ${saira.variable} ${cormorantGaramond.variable} ${poppins.variable} ${montserrat.variable} antialiased`}
+      className={` ${saira.variable} ${cormorantGaramond.variable} ${poppins.variable} ${montserrat.variable} ${carlaSans.variable} antialiased`}
     >
       <body suppressHydrationWarning className="bg-black font-saira-thin min-h-full flex flex-col">
         <Script id="gtm" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://load.tss.arck1pro.com.br/7msfshruhgdg.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','8t=DgBaLyE%2FRUY%2FPFFeMyQmVRFZVUZEVAwdWgUVCx5DGAEISgQHGFwKAQ%3D%3D');` }} />

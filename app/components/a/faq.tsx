@@ -68,7 +68,7 @@ function FaqItem({ pergunta, resposta }: { pergunta: string; resposta: string })
         }}
       >
         <div className="overflow-hidden">
-          <div className="px-5 pb-5 text-black text-sm leading-relaxed font-medium">
+          <div className="px-5 pb-5 text-black text-base leading-relaxed font-medium">
             {resposta}
           </div>
         </div>

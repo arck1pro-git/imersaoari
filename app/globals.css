@@ -365,3 +365,8 @@ body {
   font-weight: 700;
 }
 
+/* Carla Sans Font */
+.font-carlasans {
+  font-family: var(--font-carlasans), sans-serif;
+}
+

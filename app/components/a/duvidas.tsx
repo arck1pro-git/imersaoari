@@ -8,7 +8,7 @@ export default function Duvidas() {
         <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Fale com meu time.
         </h3>
-        <p className="text-gray-400 text-sm md:text-base mb-10">
+        <p className="text-gray-400 text-base md:text-base mb-10">
           Clique no botão abaixo para tirar sua dúvida com nossa equipe pelo Whatsapp
         </p>
 
@@ -21,7 +21,7 @@ export default function Duvidas() {
           QUERO FALAR COM A EQUIPE
         </a>
 
-        <p className="mt-20 text-gray-600 text-xs">
+        <p className="mt-20 text-gray-600 text-base">
           Fabhricio ARI © Copyright 2026. Todos os direitos reservados.
         </p>
       </div>

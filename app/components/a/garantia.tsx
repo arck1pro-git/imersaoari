@@ -29,10 +29,10 @@ export default function garantia() {
 
     <div className="lg:text-left text-center">
       <h3 className="gradient-text font-montserrat text-2xl font-bold mb-4">Sua satisfação ou seu dinheiro de volta.</h3>
-      <p className="text-gray-300 text-sm leading-relaxed mb-4">
+      <p className="text-gray-300 text-base leading-relaxed mb-4">
         Eu confio tanto na entrega técnica da Imersão ARI que te dou 7 dias de garantia. Se após a primeira aula você sentir que o conteúdo não é para o seu nível de investidor, basta enviar um e-mail e devolvemos 100% do seu investimento.
       </p>
-      <p className="text-gray-300 text-sm leading-relaxed">
+      <p className="text-gray-300 text-base leading-relaxed">
         Sem perguntas, sem burocracia. O risco é todo meu.
       </p>
     </div>

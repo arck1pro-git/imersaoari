@@ -12,9 +12,9 @@ export default function Sobre() {
       <h2 className="lg:text-6xl text-4xl font-montserrat font-bold mb-6">
         Quem é <span className="gradient-text">Fabhricio ARI?</span>
       </h2>
-      <div className="space-y-4 text-gray-300 text-xs leading-relaxed">
-        <p>Arquiteto, incorporador e investidor imobiliário.</p>
-        <p>Casado e pai de dois filhos, uma menina e um menino.</p>
+      <div className="space-y-4 text-gray-300 text-base leading-relaxed">
+        <p>Arquiteto, incorporador, investidor imobiliário, casado e pai de dois filhos, uma menina e um menino.</p>
+
         <p>Ensino o que aprendi ao longo de 20 anos desenvolvendo mais de 350 empreendimentos no litoral catarinense.</p>
         <p>Sócio e fundador da ARCK1PRO, Criador do Método ARI, que me permitiu sair de R$ 3 milhões para mais de R$ 10 milhões de patrimônio em apenas 4 anos investindo nas incorporações que eu mesmo desenvolvi para meus mais de 50 clientes.</p>
         <p className="font-semibold text-white">E agora te permito ter acesso a esse método ARI para dobrar seu patrimônio em até 3 anos.</p>

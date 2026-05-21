@@ -36,7 +36,7 @@ export default function Pilares() {
           <h2 className="text-4xl md:text-6xl font-montserrat font-bold mb-3">
             <span className="gradient-text">Nos 3 dias vamos nos aprofundar nos 4 pilares para um investimento de sucesso.</span>
           </h2>
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-400 text-base">
             Esses são os mesmos 4 pilares que eu uso nos meus próprios investimentos.
           </p>
         </div>
@@ -53,7 +53,7 @@ export default function Pilares() {
                   <Icon size={28} style={{ color: "#ecce83" }} />
                   <p className="gradient-text text-xs font-bold uppercase tracking-widest">{pilar.label}</p>
                   <p className="text-white font-semibold text-base leading-snug">{pilar.title}</p>
-                  <p className="text-gray-400 text-sm leading-relaxed">{pilar.body}</p>
+                  <p className="text-gray-400 text-base leading-relaxed">{pilar.body}</p>
                 </div>
               </div>
             );
