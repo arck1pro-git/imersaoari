@@ -15,7 +15,11 @@ function LeadModalInner() {
   useEffect(() => {
     const handler = () => setOpen(true);
     window.addEventListener("open-lead-modal", handler);
-    return () => window.removeEventListener("open-lead-modal", handler);
+    const timer = setTimeout(() => setOpen(true), 5000);
+    return () => {
+      window.removeEventListener("open-lead-modal", handler);
+      clearTimeout(timer);
+    };
   }, []);
 
   function close() {

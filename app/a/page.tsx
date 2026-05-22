@@ -3,6 +3,7 @@ import LeadModal from "../components/a/lead-modal";
 import Problem from "../components/a/problem";
 import Sobre from "../components/a/sobre";
 import Treinamento from "../components/a/treinamento";
+import Grafico from "../components/a/grafico";
 import Pilares from "../components/a/pilares";
 import Parequem from "../components/a/paraquem";
 import Evento from "../components/a/evento";
@@ -21,6 +22,7 @@ export default function Home() {
       <LeadModal />
       <Hero />
       <Treinamento />
+      <Grafico />
       <Pilares />
       <Parequem />
       <Evento />

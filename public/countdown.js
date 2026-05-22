@@ -1,5 +1,5 @@
 (function() {
-  const target = new Date("2026-05-26T20:00:00-03:00").getTime();
+  const target = new Date("2026-05-30T20:00:00-03:00").getTime();
 
   function updateCountdown() {
     const now = Date.now();

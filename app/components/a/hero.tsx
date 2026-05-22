@@ -1,21 +1,6 @@
 import Image from "next/image";
 import ModalTrigger from "../modal-trigger";
 
-const MARQUEE_TEXT = "O treinamento de investimento na etapa mais lucrativa do mercado imobiliário, que vai te ensinar como dobrar seu patrimônio nos próximos 3 anos.";
-
-function MarqueeTrack() {
-  return (
-    <div className="flex items-center shrink-0">
-      {Array.from({ length: 6 }).map((_, i) => (
-        <span key={i} className="flex items-center gap-6 px-6 whitespace-nowrap">
-          <span className="gradient-text font-semibold text-xs lg:text-sm">{MARQUEE_TEXT}</span>
-          <span className="gradient-text opacity-60">◆</span>
-        </span>
-      ))}
-    </div>
-  );
-}
-
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden flex flex-col lg:pt-24 font-montserrat">
@@ -26,14 +11,23 @@ export default function Hero() {
         <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to right, #000000 30%, rgba(0,0,0,0.6) 55%, rgba(0,0,0,0.1) 75%, transparent 100%)" }} />
       </div>
 
-      {/* Marquee topo */}
-      <div className="fixed top-0 left-0 right-0 z-50 overflow-hidden py-2" style={{ background: "#000000" }}>
-        <div
-          className="animate-marquee flex items-center"
-          style={{ width: "max-content", willChange: "transform" }}
-        >
-          <MarqueeTrack />
-          <MarqueeTrack />
+      {/* Countdown */}
+      <div id="countdown-container" className="text-white py-1 px-4 font-bold text-sm tracking-widest uppercase fixed top-0 left-0 right-0 z-50" style={{ background: "#000000" }}>
+        <div className="max-w-7xl mx-auto flex flex-col items-center gap-1">
+          <div className="lg:text-2xl flex items-center justify-center gap-4">
+            <div className="p-1 text-center">
+              <div className="font-bold"><span id="countdown-days" className="text-red-500">00</span> DIAS</div>
+            </div>
+            <div className="p-1 text-center">
+              <span className="text-red-500 font-bold" id="countdown-hours">00</span> H
+            </div>
+            <div className="p-1 text-center">
+              <span className="text-red-500 font-bold" id="countdown-minutes">00</span> MIN
+            </div>
+            <div className="p-1 text-center">
+              <span className="text-red-500 font-bold" id="countdown-seconds">00</span> SEG
+            </div>
+          </div>
         </div>
       </div>
 
@@ -46,21 +40,25 @@ export default function Hero() {
       {/* Conteúdo */}
       <div className="relative z-10 flex flex-1 items-center max-w-7xl mx-auto px-8 py-10 sm:py-20 w-full -mt-12">
         <div className="w-full max-w-2xl lg:max-w-3xl text-center lg:text-left mx-auto lg:mx-0">
-          <span className="inline-block border border-zinc-900 rounded-full text-white/20 text-xs uppercase px-4 py-1 lg:mb-6 font-semibold">
-            Imersão Online Exclusiva | Vagas Limitadas
-          </span>
-          <h1 className="gradient-text font-carlasans text-8xl leading-tight mb-2">
+         
+          <h1 className="gradient-text font-carlasans text-4xl lg:text-6xl leading-tight mb-2">
             IMERSÃO ARI
           </h1>
-          <div className="text-gray-300 text-base hidden lg:block leading-relaxed mb-8 mt-6 space-y-3">
-            <p>Existe um caminho muito inteligente e lucrativo que os grandes investidores usam e muitos nem sabem que existe: investir em um empreendimento antes mesmo da obra iniciar (na fase de incorporação).</p>
-            <p>Na Imersão ARI, o Fabhricio ARI vai mostrar, passo a passo, como começar a investir no mercado imobiliário do litoral de Santa Catarina, a região que mais valoriza no Brasil.</p>
-            <p>Será um treinamento online para você aprender o método para obter retornos de até 3% ao mês, totalmente livres de Imposto de Renda.</p>
-            <p>É a oportunidade perfeita para você aprender a dobrar o seu capital em 3 anos, com a segurança de um imóvel de verdade e iniciando com investimentos de R$ 50 mil.</p>
-          </div>
-          <p className="gradient-text lg:block hidden text-xs mb-4">
-            26, 27 e 28 de maio às 20h &nbsp;·&nbsp; 100% online e ao vivo &nbsp;·&nbsp; R$ 89,00
-          </p>
+          <ul className="text-gray-300 text-xs ding-relaxed mb-8 mt-6 space-y-2">
+            {[
+              "Dia 26, 27 e 28 de maio às 20h (Brasília).",
+              "Ao vivo pelo Youtube — link exclusivo para inscritos.",
+              "Gravação do treinamento para assistir a qualquer momento.",
+              "Conteúdo técnico, prático e aplicável.",
+              "Perguntas e Respostas ao vivo para tirar dúvidas.",
+              "Materiais para análise de investimento em incorporação imobiliária.",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-2 font-semibold">
+                <span className="gradient-text mt-0.5 shrink-0">◆</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
           <ModalTrigger className="button-sun font-bold uppercase tracking-widest px-10 py-4 text-sm inline-block">
             GARANTIR MINHA VAGA
           </ModalTrigger>
