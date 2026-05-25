@@ -124,7 +124,7 @@ function LeadModalInner() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-black border border-white/20 text-white font-bold uppercase tracking-widest px-8 py-4 text-sm mt-1 disabled:opacity-50 rounded-lg hover:bg-white/5 transition-colors"
+                  className="w-full button-sun font-bold uppercase tracking-widest px-8 py-4 text-sm mt-1 disabled:opacity-50 rounded-lg"
                 >
                   {loading ? "ENVIANDO..." : "GARANTIR MINHA VAGA"}
                 </button>
