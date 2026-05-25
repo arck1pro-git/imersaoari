@@ -37,7 +37,7 @@ export default function Preco() {
       </div>
 
       <p className="text-gray-500 text-2xl line-through font-normal mt-4 mb-0">R$ 14.993,00</p>
-      <p className="text-white text-4xl lg:text-5xl font-bold mt-2">12x de R$ 9,20</p>
+      <p className="text-red-500 text-4xl lg:text-5xl font-bold mt-2">12x de R$ 9,20</p>
 
     </div>
     <div className=" place-items-center mt-10">

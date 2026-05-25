@@ -14,6 +14,7 @@ import Custo from "../components/a/custo";
 import Faq from "../components/a/faq";
 import PS from "../components/a/ps";
 import Duvidas from "../components/a/duvidas";
+import Depoimento from "../components/a/depoimento";
 
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
       <Evento />
       <Preco />
       <Sobre />
+      <Depoimento />
       <Garantia />
       <Faq />
       <Duvidas />

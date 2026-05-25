@@ -13,7 +13,7 @@ export default function PS() {
           Essa é a Imersão que eu faço pra investidor sério, investidor que está disposto
           a parar de perder para a inflação e começar a multiplicar com método.
         </p>
-        <p className="text-white">Te espero nos dias 26, 27 e 28 de maio.</p>
+        <p className="text-white">Te espero no dia 30 de maio.</p>
       </div>
 
       <div className="mt-10">

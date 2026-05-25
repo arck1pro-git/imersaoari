@@ -18,8 +18,8 @@ const faqItems = [
     lado: "esquerda",
   },
   {
-    pergunta: "E se não puder estar presente nos 3 dias?",
-    resposta: "Recomendamos fortemente a presença ao vivo, especialmente no Q&A do último dia. Mas caso não consiga, as gravações ficam disponíveis por 30 dias para que você assista no seu ritmo.",
+    pergunta: "E se não puder estar presente no dia 30?",
+    resposta: "Recomendamos fortemente a presença ao vivo, especialmente no Q&A ao vivo. Mas caso não consiga, a gravação fica disponível por 30 dias para que você assista no seu ritmo.",
     lado: "esquerda",
   },
   {

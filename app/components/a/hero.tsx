@@ -7,7 +7,7 @@ export default function Hero() {
 
       {/* Imagem de fundo — apenas desktop */}
       <div className="absolute inset-0 z-0 hidden sm:block">
-        <Image src="/portobelo.webp" alt="" width={1920} height={1080} className="absolute top-0 right-0 h-full w-auto" priority />
+        <Image src="/heroarck.webp" alt="" width={1920} height={1080} className="absolute top-0 right-0 h-full w-auto" priority />
         <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to right, #000000 30%, rgba(0,0,0,0.6) 55%, rgba(0,0,0,0.1) 75%, transparent 100%)" }} />
       </div>
 
@@ -33,7 +33,7 @@ export default function Hero() {
 
       {/* Imagem acima do conteúdo — apenas mobile */}
       <div className="block lg:hidden w-full relative z-10">
-        <Image src="/portobelo.webp" alt="" width={800} height={450} className="w-full h-72 object-cover object-top" priority />
+        <Image src="/heroarck.webp" alt="" width={800} height={450} className="w-full h-72 object-cover object-top" priority />
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-black" />
       </div>
 
@@ -46,7 +46,7 @@ export default function Hero() {
           </h1>
           <ul className="text-gray-300 text-xs ding-relaxed mb-8 mt-6 space-y-2">
             {[
-              "Dia 26, 27 e 28 de maio às 20h (Brasília).",
+              "Dia 30 de maio às 9h (Brasília).",
               "Ao vivo pelo Youtube — link exclusivo para inscritos.",
               "Gravação do treinamento para assistir a qualquer momento.",
               "Conteúdo técnico, prático e aplicável.",

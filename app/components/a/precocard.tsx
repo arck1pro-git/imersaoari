@@ -10,7 +10,7 @@ export default function Precocard() {
       style={{ padding: "1.5px", background: "linear-gradient(135deg, #c4a540 0%, #ecce83 50%, #f5dfa8 100%)", borderRadius: "1.5rem" }}
     >
       <div className="bg-zinc-950 p-10 text-center" style={{ borderRadius: "calc(1.5rem - 1.5px)" }}>
-        <p className="gradient-text font-bold text-sm uppercase tracking-widest mb-8">
+        <p className="gradient-text font-bold text-xs lg:text-sm uppercase tracking-widest mb-8">
           O MELHOR INVESTIMENTO É INVESTIR EM CONHECIMENTO.
         </p>
 

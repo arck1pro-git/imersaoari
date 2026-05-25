@@ -16,7 +16,7 @@ export default function Evento() {
     <div className="bg-zinc-950 p-8 text-left space-y-4" style={{ borderRadius: "calc(1.5rem - 1.5px)" }}>
       <div className="flex items-start gap-3 text-base text-gray-300">
         <Calendar size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#ecce83" }} />
-        Dia 26, 27 e 28 de maio às 20h (Brasília).
+        Dia 30 de maio às 9h (Brasília).
       </div>
       <div className="flex items-start gap-3 text-base text-gray-300">
         <Monitor size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#ecce83" }} />
