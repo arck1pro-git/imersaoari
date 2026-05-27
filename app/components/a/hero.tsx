@@ -46,12 +46,7 @@ export default function Hero() {
           </h1>
           <ul className="text-gray-300 text-xs ding-relaxed mb-8 mt-6 space-y-2">
             {[
-              "Dia 30 de maio às 9h (Brasília).",
-              "Ao vivo pelo Youtube — link exclusivo para inscritos.",
-              "Gravação do treinamento para assistir a qualquer momento.",
-              "Conteúdo técnico, prático e aplicável.",
-              "Perguntas e Respostas ao vivo para tirar dúvidas.",
-              "Materiais para análise de investimento em incorporação imobiliária.",
+              "3 horas de conteúdo para você aprender o modelo de investimento que garante dobrar seu patrimônio em 36 meses investindo em incorporação imobiliária no litoral catarinense.",
             ].map((item) => (
               <li key={item} className="flex items-start gap-2 font-semibold">
                 <span className="gradient-text mt-0.5 shrink-0">◆</span>
