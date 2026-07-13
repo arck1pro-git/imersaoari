@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden flex flex-col lg:pt-24">
 
-      {/* Imagem de fundo — apenas desktop */}
+      {/* Imagem de fundo - apenas desktop */}
       <div className="absolute inset-0 z-0 hidden sm:block">
         <Image src="/portobelo.webp" alt="" width={1920} height={1080} className="absolute top-0 right-0 h-full w-auto" priority />
         <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to right, #000000 30%, rgba(0,0,0,0.6) 55%, rgba(0,0,0,0.1) 75%, transparent 100%)" }} />
@@ -31,7 +31,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Imagem acima do conteúdo — apenas mobile */}
+      {/* Imagem acima do conteúdo - apenas mobile */}
       <div className="block lg:hidden w-full relative z-10">
         <Image src="/portobelo.webp" alt="" width={800} height={450} className="w-full h-72 object-cover object-top" priority />
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-black" />

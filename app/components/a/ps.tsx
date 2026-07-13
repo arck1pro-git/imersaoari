@@ -4,7 +4,7 @@ export default function PS() {
   return (
     <section className="text-white py-12 px-6 text-center font-montserrat">
       <p className="gradient-text font-bold tracking-widest uppercase text-sm mb-8">
-        P.S. — EU JÁ TE FALEI E REPITO:
+        P.S. EU JÁ TE FALEI E REPITO:
       </p>
 
       <div className="max-w-2xl mx-auto space-y-5 text-gray-300 text-base md:text-lg">

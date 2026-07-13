@@ -87,7 +87,7 @@ export default function Faq() {
 
       <div className="relative z-10 max-w-5xl mx-auto">
         <p className="text-center gradient-text font-bold tracking-[0.3em] uppercase text-sm mb-3">
-          FAQ — PERGUNTAS FREQUENTES
+          FAQ: PERGUNTAS FREQUENTES
         </p>
         <h2 className="text-center text-3xl md:text-4xl font-montserrat font-bold text-white mb-12">
           Ainda com dúvida? Lê aqui.

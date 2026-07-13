@@ -20,7 +20,7 @@ export default function Evento() {
       </div>
       <div className="flex items-start gap-3 text-base text-gray-300">
         <Monitor size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#ecce83" }} />
-        Ao vivo pelo Youtube — link exclusivo para inscritos.
+        Ao vivo pelo Youtube. Link exclusivo para inscritos.
       </div>
       <div className="flex items-start gap-3 text-base text-gray-300">
         <PlayCircle size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#ecce83" }} />

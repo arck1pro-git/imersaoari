@@ -2,7 +2,7 @@ export default function Bonus() {
     return (
 <section className=" text-white py-24 px-6">
   <div className="max-w-3xl mx-auto text-center mb-12">
-    <p className="gradient-text font-bold uppercase tracking-widest text-sm mb-2">🔥 Bônus Exclusivo — Checklist de Due Diligence</p>
+    <p className="gradient-text font-bold uppercase tracking-widest text-sm mb-2">🔥 Bônus Exclusivo: Checklist de Due Diligence</p>
     <h2 className="text-2xl font-bold mb-6">
       Planilha com 47 pontos de análise em incorporações
     </h2>

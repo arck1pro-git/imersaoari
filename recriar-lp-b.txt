@@ -1,0 +1,1296 @@
+========================================================================
+GUIA PARA RECRIAR A LANDING PAGE /b  —  "Imersão ARI"
+========================================================================
+Objetivo: recriar a ESTRUTURA e o ESTILO da LP /b de forma idêntica.
+NÃO inclui a integração de webhook (SprintHub) nem o checkout Hotmart.
+O modal de lead vem com um handleSubmit "vazio" (placeholder) para você
+plugar a integração que quiser depois.
+
+Stack: Next.js (App Router) + React + TypeScript + Tailwind CSS v4
+Ícones: lucide-react
+Fontes: next/font (Poppins é a principal usada na /b)
+
+------------------------------------------------------------------------
+1. ESTRUTURA DE ARQUIVOS
+------------------------------------------------------------------------
+app/
+  globals.css                      -> estilos globais (classes .button, gradientes, animações)
+  layout.tsx                       -> fontes + scripts (countdown, scroll-effect)
+  b/
+    page.tsx                       -> monta a página /b (ordem das seções)
+  components/
+    b/
+      hero.tsx
+      marquee-banner.tsx
+      sobre.tsx
+      oque.tsx
+      oquevaiter.tsx               -> carrossel dos 4 pilares
+      paraquem.tsx
+      valor.tsx                    -> card de preço com borda girando
+      perguntas.tsx                -> FAQ acordeão
+      footer.tsx
+      garantir-vaga-btn.tsx        -> botão CTA (dispara evento "open-lead-modal")
+    lead-modal.tsx                 -> modal (versão SEM webhook/hotmart)
+
+public/
+  herob.webp        -> imagem de fundo do hero
+  fabrhicio.webp    -> foto do Fabhricio (seção Sobre)
+  pilar1.webp ... pilar4.webp -> imagens dos 4 pilares
+  icon.png          -> favicon
+  countdown.js      -> script do contador regressivo
+  scroll-effect.js  -> efeito de "wipe" vermelho na barra do countdown
+
+------------------------------------------------------------------------
+2. PALETA / IDENTIDADE VISUAL
+------------------------------------------------------------------------
+Fundo geral        : preto (#000000 / #0a0a0a)
+Texto              : branco / cinzas (text-gray-300, text-gray-400, text-gray-500)
+Cor de acento azul : --marquee-blue = #1e3a8a
+Gradiente azul     : #1e3a8a -> #2563eb -> #60a5fa/#89c4ff (classe .gradient-text-blue / .button-blue)
+Gradiente dourado  : #c4a540 -> #ecce83 -> #f5dfa8 (classe .button / botão CTA principal)
+Fonte principal    : Poppins (classe .font-poppins)
+Estilo dos cards   : fundo escuro translúcido rgba(0,0,0,0.82~0.88) + borda branca sutil
+                     rgba(255,255,255,0.12~0.25) + sombra interna (inset) branca
+Cantos             : rounded-lg / rounded-xl; botões têm border-radius: 0 12px 0 12px
+Efeitos            : brilho passando no botão (.button::before), texto "shine"
+                     animado (.shine-text), hover-scale, borda girando azul (.border-spin-blue)
+
+------------------------------------------------------------------------
+3. ORDEM DA PÁGINA  —  app/b/page.tsx
+------------------------------------------------------------------------
+import LeadModal from "../components/lead-modal";
+import Hero from "../components/b/hero";
+import { MarqueeBanner } from "../components/b/marquee-banner";
+import Sobre from "../components/b/sobre";
+import Oque from "../components/b/oque";
+import OqueVaiTer from "../components/b/oquevaiter";
+import Parequem from "../components/b/paraquem";
+import Valor from "../components/b/valor";
+import Perguntas from "../components/b/perguntas";
+import Footer from "../components/b/footer";
+
+export default function BPage() {
+  return (
+    <main className="bg-black relative">
+      <LeadModal />
+      <Hero />
+      <MarqueeBanner />
+      <Sobre />
+      <Oque />
+      <OqueVaiTer />
+      <Parequem />
+      <Valor />
+      <Perguntas />
+      <Footer />
+    </main>
+  );
+}
+
+------------------------------------------------------------------------
+4. globals.css  (colar inteiro — contém TODAS as classes usadas)
+------------------------------------------------------------------------
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --marquee-blue: #1e3a8a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --animate-marquee: marquee 30s linear infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html { scroll-behavior: smooth; }
+
+#countdown-container * { transition: color 0.4s ease-in-out; }
+#countdown-container.text-dark * { color: #000000 !important; }
+#countdown-container.text-blue-accent span { color: var(--marquee-blue) !important; }
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes spin-border { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.spin-slow { animation: spin-slow 8s linear infinite; }
+
+.border-spin { position: relative; overflow: hidden; }
+
+.border-spin-blue {
+  position: relative;
+  overflow: hidden;
+  animation: border-glow-follow 1.5s linear infinite;
+  will-change: box-shadow;
+}
+
+@keyframes border-glow-follow {
+  0%   { box-shadow:  0 -12px 25px rgba(96,165,250,0.7),  0 0 50px rgba(30,58,138,0.2); }
+  25%  { box-shadow:  12px 0 25px rgba(96,165,250,0.7),   0 0 50px rgba(30,58,138,0.2); }
+  50%  { box-shadow:  0 12px 25px rgba(96,165,250,0.7),   0 0 50px rgba(30,58,138,0.2); }
+  75%  { box-shadow: -12px 0 25px rgba(96,165,250,0.7),   0 0 50px rgba(30,58,138,0.2); }
+  100% { box-shadow:  0 -12px 25px rgba(96,165,250,0.7),  0 0 50px rgba(30,58,138,0.2); }
+}
+
+.border-spin-blue::before {
+  content: "";
+  position: absolute;
+  inset: -150%;
+  will-change: transform;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(30, 58, 138, 0.15) 40deg,
+    #1e3a8a 60deg,
+    #2563eb 75deg,
+    #60a5fa 85deg,
+    #2563eb 95deg,
+    #1e3a8a 110deg,
+    rgba(30, 58, 138, 0.15) 130deg,
+    transparent 170deg,
+    transparent 360deg
+  );
+  animation: spin-border 1.5s linear infinite;
+  z-index: 0;
+}
+
+.border-spin::before {
+  content: "";
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(196, 165, 64, 0.15) 40deg,
+    #c4a540 60deg,
+    #ecce83 75deg,
+    #f5dfa8 85deg,
+    #ecce83 95deg,
+    #c4a540 110deg,
+    rgba(196, 165, 64, 0.15) 130deg,
+    transparent 170deg,
+    transparent 360deg
+  );
+  animation: spin-border 4s linear infinite;
+}
+
+.fade-in { animation: fadeIn 0.5s ease-in-out; }
+
+@keyframes lightBeam {
+  0%   { left: -100%; }
+  50%  { left: 100%; }
+  100% { left: 100%; }
+}
+
+.button {
+  background: linear-gradient(135deg, #c4a540 0%, #ecce83 50%, #f5dfa8 100%);
+  box-shadow: 0 0 20px rgba(236, 206, 131, 0.5), 0 0 40px rgba(236, 206, 131, 0.2);
+  transition: all 0.1s ease;
+  cursor: pointer;
+  border-radius: 0 12px 0 12px;
+  color: #ffffff;
+  font-size: 0.875rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: skewX(-20deg);
+  animation: lightBeam 5s infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (min-width: 640px) { .button { font-size: 20px; } }
+
+.button:hover {
+  box-shadow: 0 0 30px rgba(236, 206, 131, 0.8), 0 0 60px rgba(236, 206, 131, 0.4);
+  transform: scale(1.05);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #c4a540 0%, #ecce83 50%, #f5dfa8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #89c4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes shine-text-anim {
+  0%   { background-position: 100% center; }
+  26%  { background-position: 0% center; }
+  100% { background-position: 0% center; }
+}
+
+.shine-text {
+  display: inline-block;
+  background: linear-gradient(
+    105deg,
+    #1e3a8a 0%,
+    #6493f8 38%,
+    #9ac7ff 46%,
+    #bfdbfe 50%,
+    #9ac7ff 54%,
+    #6493f8 62%,
+    #1e3a8a 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: shine-text-anim 5.5s linear infinite;
+}
+
+.button-blue {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #60a5fa 100%);
+  box-shadow: 0 0 20px rgba(37,99,235,0.4), 0 0 40px rgba(37,99,235,0.15);
+  transition: all 0.1s ease;
+  cursor: pointer;
+  border-radius: 0 12px 0 12px;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.button-blue::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  animation: lightBeam 5s infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.button-blue:hover {
+  box-shadow: 0 0 30px rgba(37,99,235,0.7), 0 0 60px rgba(37,99,235,0.3);
+  transform: scale(1.05);
+}
+
+/* botão amarelo usado no submit do modal */
+.button-sun {
+  background: linear-gradient(135deg, #c4a200 0%, #FFDE21 50%, #fff0a0 100%);
+  box-shadow: 0 0 20px rgba(255, 222, 33, 0.5), 0 0 40px rgba(255, 222, 33, 0.2);
+  transition: all 0.1s ease;
+  cursor: pointer;
+  border-radius: 0 12px 0 12px;
+  color: #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+.button-sun::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  animation: lightBeam 5s infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.button-sun:hover {
+  box-shadow: 0 0 30px rgba(255, 222, 33, 0.8), 0 0 60px rgba(255, 222, 33, 0.4);
+  transform: scale(1.05);
+}
+
+.hover-scale { transition: transform 0.4s ease, box-shadow 0.25s ease; }
+.hover-scale:hover { transform: scale(1.07); }
+
+/* Poppins Font (fonte principal da /b) */
+.font-poppins { font-family: var(--font-poppins); }
+.font-poppins-thin { font-family: var(--font-poppins); font-weight: 300; }
+.font-poppins-normal { font-family: var(--font-poppins); font-weight: 400; }
+.font-poppins-bold { font-family: var(--font-poppins); font-weight: 700; }
+
+/* Montserrat (usada no modal) */
+.font-montserrat { font-family: var(--font-montserrat, 'Montserrat', sans-serif); }
+
+------------------------------------------------------------------------
+5. layout.tsx  (fontes + scripts). Mínimo necessário p/ a /b:
+------------------------------------------------------------------------
+import type { Metadata } from "next";
+import { Poppins, Montserrat } from "next/font/google";
+import Script from "next/script";
+import "./globals.css";
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
+  display: "swap",
+});
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+  display: "swap",
+  preload: false,
+});
+
+export const metadata: Metadata = {
+  title: "Imersão ARI — Dobrar o Capital em 3 Anos",
+  description: "Aprenda o método que dobra patrimônio em 3 anos com a solidez do mercado imobiliário catarinense.",
+  icons: { icon: "/icon.png" },
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html suppressHydrationWarning lang="pt-BR"
+      className={`${poppins.variable} ${montserrat.variable} antialiased`}>
+      <body suppressHydrationWarning className="bg-black min-h-full flex flex-col">
+        {/* scripts do contador e do efeito de scroll da barra */}
+        <Script src="/countdown.js" strategy="afterInteractive" />
+        <Script src="/scroll-effect.js" strategy="afterInteractive" />
+        {children}
+      </body>
+    </html>
+  );
+}
+
+------------------------------------------------------------------------
+6. COMPONENTES  —  app/components/b/*
+------------------------------------------------------------------------
+
+======================= garantir-vaga-btn.tsx =========================
+"use client";
+
+import { ArrowUpRight } from "lucide-react";
+
+export default function GarantirVagaBtn({ className, variant = "gold" }: { className?: string; variant?: "gold" | "blue" }) {
+  const base = variant === "blue" ? "button-blue text-white" : "button text-black";
+  return (
+    <button
+      type="button"
+      className={`${base} font-bold py-3 px-8 text-xs lg:py-5 lg:px-14 lg:text-lg w-full max-w-sm flex items-center justify-center gap-2 uppercase tracking-widest whitespace-nowrap ${className ?? ""}`}
+      onClick={() => window.dispatchEvent(new CustomEvent("open-lead-modal"))}
+    >
+      GARANTIR MINHA VAGA
+      <ArrowUpRight className="w-5 h-5" />
+    </button>
+  );
+}
+
+============================== hero.tsx ================================
+import Image from "next/image";
+import { Calendar, Monitor } from "lucide-react";
+import GarantirVagaBtn from "./garantir-vaga-btn";
+
+export default function Hero() {
+  return (
+    <section className="relative overflow-hidden min-h-screen font-poppins flex flex-col">
+
+      {/* Countdown fixo no topo */}
+      <div id="countdown-container" className="text-white py-1 px-4 font-bold text-xs tracking-widest uppercase fixed top-0 left-0 right-0 z-50" style={{ background: "#000000" }}>
+        <div className="max-w-7xl mx-auto flex flex-col items-center gap-0">
+          <div className="lg:text-base flex items-center justify-center gap-4">
+            <div className="p-1 text-center">
+              <div className="font-bold"><span id="countdown-days" className="text-red-500">00</span> DIAS</div>
+            </div>
+            <div className="p-1 text-center">
+              <span className="text-red-500 font-bold" id="countdown-hours">00</span> H
+            </div>
+            <div className="p-1 text-center">
+              <span className="text-red-500 font-bold" id="countdown-minutes">00</span> MIN
+            </div>
+            <div className="p-1 text-center">
+              <span className="text-red-500 font-bold" id="countdown-seconds">00</span> SEG
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Imagem de fundo — apenas desktop */}
+      <div className="absolute inset-0 z-0 hidden lg:block">
+        <Image src="/herob.webp" alt="" fill sizes="100vw" className="object-cover object-center" priority />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
+      </div>
+
+      {/* Imagem acima do conteúdo — apenas mobile */}
+      <div className="block lg:hidden w-full relative z-10 mt-8">
+        <Image src="/herob.webp" alt="" width={800} height={450} sizes="(max-width: 768px) 100vw, 800px" className="w-full h-72 object-cover object-top" priority />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-black" />
+      </div>
+
+      {/* Conteúdo */}
+      <div className="relative z-20 w-full px-6 lg:px-64 py-10 lg:py-24 lg:pt-40 -mt-12 lg:mt-0 flex-1">
+        <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+
+          <p className="gradient-text-blue hidden lg:block  tracking-[0.3em] text-xs font-semibold uppercase mb-3">
+            Imersão exclusiva para investidores do mercado imobiliário
+          </p>
+
+          <h1 className="text-white font-poppins text-5xl lg:text-7xl font-light leading-tight mb-2">
+            Imersão<br />
+            <span className="gradient-text-blue shine-text font-bold">ARI</span>
+          </h1>
+
+          <h2 className="text-xl lg:text-3xl font-poppins font-medium mb-4 leading-tight text-white">
+            3 dias para dobrar seu patrimônio nos{" "}
+            <span className="gradient-text-blue font-bold">próximos 3 anos</span>
+          </h2>
+
+          <p className="text-gray-400 mb-8 lg:block hidden leading-relaxed">
+            Aprenda em 3 dias o método real de investimento em incorporação imobiliária no litoral catarinense que pode dobrar seu capital em 3 anos.
+            Ao vivo. Com Fabhricio ARI.
+          </p>
+
+          <div className="space-y-3 mb-4">
+            <p className="text-gray-500 text-xs">
+              <span className="line-through mr-2">De R$ 297,00</span>
+              <span className="gradient-text-blue font-bold text-base">por R$ 89,00</span>
+            </p>
+            <GarantirVagaBtn className="w-full" />
+          </div>
+
+          <div className="flex flex-col gap-1 text-sm text-gray-500 mt-4">
+            <span className="flex items-center gap-2"><Calendar className="w-4 h-4" /> 26, 27 e 28 de maio às 20h</span>
+            <span className="flex items-center gap-2"><Monitor className="w-4 h-4" /> Evento 100% Online e ao vivo</span>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+  );
+}
+
+========================== marquee-banner.tsx =========================
+const ITEM = (
+  <>
+    <span className="text-xl text-white px-4">AO VIVO</span>
+    <span style={{ color: "var(--marquee-blue)" }} className="text-xl px-2">◇</span>
+    <span className="text-xl text-white px-4">26, 27 E 28 DE MAIO</span>
+    <span style={{ color: "var(--marquee-blue)" }} className="text-xl px-2">◇</span>
+  </>
+);
+
+function Track() {
+  return (
+    <div className="flex items-center shrink-0">
+      {ITEM}{ITEM}{ITEM}{ITEM}{ITEM}{ITEM}
+    </div>
+  );
+}
+
+export function MarqueeBanner() {
+  return (
+    <section className="bg-[#0a0a0a] py-4 border-y border-[#222] overflow-hidden font-poppins">
+      <div
+        className="animate-marquee flex items-center whitespace-nowrap"
+        style={{ width: "max-content", willChange: "transform" }}
+      >
+        <Track />
+        <Track />
+      </div>
+    </section>
+  );
+}
+
+============================== sobre.tsx ===============================
+import Image from "next/image";
+import { Building2, MapPin, Briefcase } from "lucide-react";
+import GarantirVagaBtn from "./garantir-vaga-btn";
+
+function TextBlock() {
+  return (
+    <div className="relative z-10 rounded-lg p-6 flex flex-col justify-center -translate-y-12 ml-6 aspect-[4/5] hover-scale" style={{ background: "rgba(0,0,0,0.88)", border: "1px solid rgba(255,255,255,0.25)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.2), inset 1px 0 0 rgba(255,255,255,0.1)" }}>
+      <div className="relative flex gap-4">
+        <div className="w-[3px] rounded-full shrink-0" style={{ background: "linear-gradient(to bottom, #1e3a8a, #2563eb 40%, #ffffff)" }} />
+        <div>
+          <p className="text-sm mb-2" style={{ color: "var(--marquee-blue)" }}>Incorporador e Investidor Imobiliário</p>
+          <h3 className="text-2xl font-bold mb-5 text-white">FABHRICIO ARI</h3>
+          <div className="space-y-3 text-gray-400 text-xs leading-relaxed">
+            <p>Comecei no mercado imobiliário em 2006. Passei 20 anos mergulhado na indústria da construção civil.</p>
+            <p>Não foi só teoria. Foi canteiro, reunião com investidor, cronograma apertado, obra atrasada, cliente nervoso, fornecedor cobrando.</p>
+            <p>Foi ali, no dia a dia, que eu entendi o que realmente move um empreendimento: não é só concreto e planta. É gente. É dinheiro circulando. É timing. É entregar o que promete.</p>
+            <p>Fundei a ARCK1PRO em 2006. Montei um time que pensa como eu: arquitetos, engenheiros, advogados. Gente que não aceita amadorismo. Gente que resolve.</p>
+            <p>Já desenvolvi mais de 350 empreendimentos. Estruturei operações do zero. Levantei capital. Viabilizei projetos que muitos achavam impossíveis.</p>
+            <p>Depois de anos no mercado, estruturei o ARI: o Ativo certo para o investidor do mercado imobiliário.</p>
+            <p className="font-semibold text-white">Transformo terreno em oportunidade. Oportunidade em empreendimento. Empreendimento em lucro real pro investidor.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PhotoBlock() {
+  return (
+    <div className="relative rounded-lg overflow-hidden aspect-square">
+      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent z-10" />
+      <Image src="/fabrhicio.webp" alt="Fabrício ARI" fill sizes="(max-width: 1024px) 100vw, 400px" className="object-cover object-top" />
+      <div className="absolute bottom-4 left-4 right-4 z-20 flex flex-col gap-2">
+        <div className="flex items-center gap-2 px-4 py-2 w-fit rounded-lg hover-scale" style={{ background: "rgba(0,0,0,0.82)", border: "1px solid rgba(255,255,255,0.15)" }}>
+          <Building2 className="w-4 h-4 shrink-0" style={{ color: "var(--marquee-blue)" }} />
+          <span className="text-xs font-medium text-white">+350 Empreendimentos desenvolvidos</span>
+        </div>
+        <div className="flex items-center gap-2 px-4 py-2 w-fit rounded-lg hover-scale" style={{ background: "rgba(0,0,0,0.82)", border: "1px solid rgba(255,255,255,0.15)" }}>
+          <MapPin className="w-4 h-4 shrink-0" style={{ color: "var(--marquee-blue)" }} />
+          <span className="text-xs font-medium text-white">+80 Terrenos negociados</span>
+        </div>
+        <div className="flex items-center gap-2 px-4 py-2 w-fit rounded-lg hover-scale" style={{ background: "rgba(0,0,0,0.82)", border: "1px solid rgba(255,255,255,0.15)" }}>
+          <Briefcase className="w-4 h-4 shrink-0" style={{ color: "var(--marquee-blue)" }} />
+          <span className="text-xs font-medium text-white">+50 Incorporadoras assessoradas</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MobileSobre() {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="relative w-40 aspect-square rounded-lg overflow-hidden mx-auto">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
+        <Image src="/fabrhicio.webp" alt="Fabrício ARI" fill sizes="160px" loading="lazy" className="object-cover object-top" />
+      </div>
+      <div className="rounded-lg p-6" style={{ background: "rgba(0,0,0,0.85)", border: "1px solid rgba(255,255,255,0.12)" }}>
+        <div className="flex gap-3">
+          <div className="w-[3px] rounded-full shrink-0" style={{ background: "linear-gradient(to bottom, #1e3a8a, #2563eb 40%, #ffffff)" }} />
+          <div>
+            <p className="text-xs mb-1" style={{ color: "var(--marquee-blue)" }}>Incorporador e Investidor Imobiliário</p>
+            <h3 className="text-xl font-bold mb-4 text-white">FABHRICIO ARI</h3>
+            <div className="space-y-2 text-gray-400 text-xs leading-relaxed">
+              <p>Comecei no mercado imobiliário em 2006. Passei 20 anos mergulhado na indústria da construção civil.</p>
+              <p>Foi canteiro, reunião com investidor, obra atrasada, cliente nervoso. Foi ali que entendi o que move um empreendimento.</p>
+              <p>Fundei a <span className="text-white font-medium">ARCK1PRO</span> em 2006. Já desenvolvi mais de 350 empreendimentos e viabilizei projetos que muitos achavam impossíveis.</p>
+              <p className="font-semibold text-white">Transformo terreno em oportunidade. Oportunidade em empreendimento. Empreendimento em lucro real pro investidor.</p>
+            </div>
+            <div className="flex flex-col gap-2 mt-4">
+              {[
+                { icon: Building2, text: "+350 Empreendimentos desenvolvidos" },
+                { icon: MapPin, text: "+80 Terrenos negociados" },
+                { icon: Briefcase, text: "+50 Incorporadoras assessoradas" },
+              ].map(({ icon: Icon, text }) => (
+                <div key={text} className="flex items-center gap-2">
+                  <Icon className="w-3 h-3 shrink-0" style={{ color: "var(--marquee-blue)" }} />
+                  <span className="text-xs text-gray-300">{text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function Sobre() {
+  return (
+    <section className="relative py-16 lg:py-24 px-4 font-poppins text-white overflow-hidden">
+      {/* Sombra azul meia-lua — apenas lg */}
+      <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 w-[700px] h-[900px] pointer-events-none z-0" style={{ background: "radial-gradient(ellipse at left center, rgba(37,99,235,0.3) 0%, rgba(30,58,138,0.1) 40%, transparent 70%)", filter: "blur(40px)" }} />
+
+      <div className="hidden lg:grid max-w-4xl mx-auto grid-cols-2 gap-20 items-stretch pt-8 -translate-x-16">
+        <PhotoBlock />
+        <TextBlock />
+      </div>
+      <div className="block lg:hidden max-w-md mx-auto">
+        <MobileSobre />
+      </div>
+
+      <div className="flex justify-center mt-10">
+        <GarantirVagaBtn />
+      </div>
+    </section>
+  );
+}
+
+============================== oque.tsx ================================
+import GarantirVagaBtn from "./garantir-vaga-btn";
+
+export default function Oque() {
+  return (
+    <section className="bg-black py-16 lg:py-24 px-6 font-poppins text-white">
+      <div className="max-w-3xl text-center mx-auto">
+        <h2 className="text-2xl lg:text-4xl font-bold mb-10 leading-tight">
+          O que é a{" "}
+          <span className="shine-text">Imersão ARI?</span>
+        </h2>
+
+        <div className="space-y-6 text-gray-300 text-base lg:text-lg leading-relaxed">
+          <p>
+            A Imersão ARI é um evento educacional <span className="gradient-text-blue font-semibold">ao vivo. 3 noites. Online.</span>
+          </p>
+          <p>
+            Com <span className="text-white font-semibold">Fabhricio ARI</span> ensinando o método que ele usa para estruturar cada investimento em incorporação imobiliária no litoral catarinense.
+          </p>
+          <p>
+            Não é uma consultoria. É um treinamento onde você aprende, ao vivo, como esse mercado funciona. Da{" "}
+            <span className="gradient-text-blue font-semibold">seleção dos empreendimentos</span> ao{" "}
+            <span className="gradient-text-blue font-semibold">recebimento do lucro.</span>
+          </p>
+        </div>
+        <div className="flex justify-center mt-10">
+          <GarantirVagaBtn />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+============================ oquevaiter.tsx ============================
+(Carrossel infinito no desktop, kanban auto-rotativo no mobile — 4 pilares)
+
+"use client";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import GarantirVagaBtn from "./garantir-vaga-btn";
+
+const PILARES = [
+  {
+    label: "Pilar 1",
+    title: "O mercado de incorporação por dentro",
+    body: "Como funciona um ciclo real: onde está o lucro, como o investidor entra, como acompanha a obra e como os retornos são distribuídos. O que separa um bom empreendimento de uma armadilha.",
+    image: "/pilar1.webp",
+  },
+  {
+    label: "Pilar 2",
+    title: "Seleção de oportunidades",
+    body: "Critérios técnicos para identificar o empreendimento certo. Como filtrar projetos viáveis de projetos problemáticos — antes de aportar.",
+    image: "/pilar2.webp",
+  },
+  {
+    label: "Pilar 3",
+    title: "Segurança jurídica e financeira",
+    body: "Como utilizar SPEs, SCP e garantias reais para proteger o capital investido. A estrutura por trás de cada operação.",
+    image: "/pilar3.webp",
+  },
+  {
+    label: "Pilar 4",
+    title: "Ciclo de saída e realização do retorno",
+    body: "Como e quando o investidor recebe. Como otimizar a saída do ativo e potencializar retornos.",
+    image: "/pilar4.webp",
+  },
+];
+
+const GAP = 24;
+const SPEED = 0.8;
+
+function CardContent({ pilar }: { pilar: typeof PILARES[0] }) {
+  return (
+    <div className="relative overflow-hidden aspect-[4/5]" style={{ border: "1px solid rgba(255,255,255,0.12)" }}>
+      <Image src={pilar.image} alt={pilar.label} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover object-center" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+      <div className="absolute bottom-4 left-4 right-4 z-10 rounded-lg p-4 font-poppins"
+        style={{
+          background: "rgba(0,0,0,0.82)",
+          border: "1px solid rgba(255,255,255,0.2)",
+          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.15), inset 1px 0 0 rgba(255,255,255,0.08)",
+        }}
+      >
+        <p className="gradient-text-blue text-xs font-bold uppercase tracking-widest mb-2">{pilar.label}</p>
+        <p className="text-white font-semibold text-sm leading-snug mb-1">{pilar.title}</p>
+        <p className="text-gray-300 text-xs leading-relaxed">{pilar.body}</p>
+      </div>
+    </div>
+  );
+}
+
+function MobileKanban() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => setIndex(i => (i + 1) % PILARES.length), 3000);
+    return () => clearInterval(t);
+  }, []);
+
+  const p = PILARES[index];
+
+  return (
+    <div className="px-6">
+      <div key={index} className="rounded-lg overflow-hidden fade-in relative aspect-[4/5]" style={{ border: "1px solid rgba(255,255,255,0.12)" }}>
+        <Image src={p.image} alt={p.label} fill sizes="100vw" className="object-cover object-center" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+        <div className="absolute bottom-4 left-4 right-4 z-10 rounded-lg p-4"
+          style={{
+            background: "rgba(0,0,0,0.82)",
+            border: "1px solid rgba(255,255,255,0.2)",
+            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.15), inset 1px 0 0 rgba(255,255,255,0.08)",
+          }}
+        >
+          <p className="gradient-text-blue text-xs font-bold uppercase tracking-widest mb-2">{p.label}</p>
+          <p className="text-white font-semibold text-sm leading-snug mb-1">{p.title}</p>
+          <p className="text-gray-300 text-xs leading-relaxed">{p.body}</p>
+        </div>
+      </div>
+
+      <div className="flex justify-center gap-2 mt-6">
+        {PILARES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIndex(i)}
+            className={`h-1.5 rounded-full transition-all duration-300 ${i === index ? "w-8" : "w-2 bg-zinc-600"}`}
+            style={i === index ? { width: "2rem", background: "var(--marquee-blue)" } : {}}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DesktopCarousel() {
+  const [cardWidth, setCardWidth] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const posRef = useRef(0);
+  const frameRef = useRef<number>(0);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const measure = () => {
+      const w = el.offsetWidth;
+      if (w <= 0) return;
+      setCardWidth(Math.round(w < 1024 ? (w - GAP) / 2 : (w - GAP * 2) / 3));
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!cardWidth || cardWidth <= 0) return;
+    posRef.current = 0;
+    const oneSetWidth = PILARES.length * (cardWidth + GAP);
+    let visible = false;
+    let started = false;
+
+    function loop() {
+      if (visible) {
+        posRef.current += SPEED;
+        if (posRef.current >= oneSetWidth) posRef.current -= oneSetWidth;
+        if (trackRef.current) trackRef.current.style.transform = `translateX(-${posRef.current}px)`;
+      }
+      frameRef.current = requestAnimationFrame(loop);
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        visible = entry.isIntersecting;
+        if (visible && !started) {
+          started = true;
+          frameRef.current = requestAnimationFrame(loop);
+        }
+      },
+      { threshold: 0 }
+    );
+    if (containerRef.current) observer.observe(containerRef.current);
+
+    return () => {
+      cancelAnimationFrame(frameRef.current);
+      observer.disconnect();
+    };
+  }, [cardWidth]);
+
+  const cards = [...PILARES, ...PILARES];
+
+  return (
+    <div ref={containerRef} className="overflow-hidden">
+      <div ref={trackRef} className="flex" style={{ gap: GAP }}>
+        {cards.map((pilar, i) => (
+          <div key={i} className="flex-shrink-0 rounded-lg overflow-hidden flex flex-col hover-scale" style={{ width: cardWidth || undefined }}>
+            <CardContent pilar={pilar} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function OqueVaiTer() {
+  return (
+    <section className="text-white py-16 lg:py-24 font-poppins">
+      <div className="max-w-6xl text-center mx-auto px-6 mb-12 font-poppins">
+        <h2 className="text-2xl lg:text-4xl font-bold mb-4 font-poppins">
+          O que você vai aprender{" "}
+          <span className="gradient-text-blue">nas 3 noites?</span>
+        </h2>
+        <p className="text-gray-400 text-center max-w-2xl mx-auto font-poppins">
+          Nos 3 dias vamos percorrer os 4 pilares do método ARI — o mesmo processo que uso em cada operação real.
+        </p>
+      </div>
+
+      <div className="block sm:hidden">
+        <MobileKanban />
+      </div>
+      <div className="hidden sm:block">
+        <DesktopCarousel />
+      </div>
+
+      <div className="flex justify-center mt-10 px-6">
+        <GarantirVagaBtn />
+      </div>
+    </section>
+  );
+}
+
+============================ paraquem.tsx ==============================
+import { DollarSign, TrendingUp, Clock, X } from "lucide-react";
+import GarantirVagaBtn from "./garantir-vaga-btn";
+
+export default function Parequem() {
+  return (
+    <section className="py-16 lg:py-24 px-4 text-white font-poppins">
+      <div className="max-w-4xl mx-auto relative border border-white/30 overflow-hidden p-8 lg:p-12 rounded-lg">
+        <div className="absolute top-0 right-0 w-80 h-80 pointer-events-none z-0"
+          style={{ background: "radial-gradient(circle at top right, rgba(30,58,138,0.55) 0%, transparent 70%)" }} />
+        <div className="absolute bottom-0 left-0 w-80 h-80 pointer-events-none z-0"
+          style={{ background: "radial-gradient(circle at bottom left, rgba(30,58,138,0.55) 0%, transparent 70%)" }} />
+
+        <div className="relative z-10">
+          <h2 className="text-2xl text-center lg:text-4xl font-bold mb-12">
+            Essa imersão foi feita<br />para você que:
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {/* Repita este bloco 4x trocando ícone + texto */}
+            <div className="p-3 lg:p-6 rounded-lg hover-scale" style={{ background: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.06) 0%, transparent 55%), #09090b", border: "1px solid rgba(255,255,255,0.12)" }}>
+              <div className="mb-3 w-7 h-7 lg:w-10 lg:h-10 rounded-full border border-white/20 flex items-center justify-center" style={{ background: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.18) 0%, transparent 65%)" }}>
+                <DollarSign className="w-3 h-3 lg:w-5 lg:h-5" style={{ color: "var(--marquee-blue)" }} />
+              </div>
+              <p className="text-gray-300 text-xs lg:text-base">
+                <span className="font-bold text-white">Tem entre R$ 50 mil e R$ 500 mil</span> para investir e quer colocar esse capital em ativos reais, não em especulação.
+              </p>
+            </div>
+
+            <div className="p-3 lg:p-6 rounded-lg hover-scale" style={{ background: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.06) 0%, transparent 55%), #09090b", border: "1px solid rgba(255,255,255,0.12)" }}>
+              <div className="mb-3 w-7 h-7 lg:w-10 lg:h-10 rounded-full border border-white/20 flex items-center justify-center" style={{ background: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.18) 0%, transparent 65%)" }}>
+                <TrendingUp className="w-3 h-3 lg:w-5 lg:h-5" style={{ color: "var(--marquee-blue)" }} />
+              </div>
+              <p className="text-gray-300 text-xs lg:text-base">
+                <span className="font-bold text-white">Quer multiplicar seu capital</span> com rendimentos consistentes investindo em incorporação imobiliária no litoral de SC.
+              </p>
+            </div>
+
+            <div className="p-3 lg:p-6 rounded-lg hover-scale" style={{ background: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.06) 0%, transparent 55%), #09090b", border: "1px solid rgba(255,255,255,0.12)" }}>
+              <div className="mb-3 w-7 h-7 lg:w-10 lg:h-10 rounded-full border border-white/20 flex items-center justify-center" style={{ background: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.18) 0%, transparent 65%)" }}>
+                <Clock className="w-3 h-3 lg:w-5 lg:h-5" style={{ color: "var(--marquee-blue)" }} />
+              </div>
+              <p className="text-gray-300 text-xs lg:text-base">
+                <span className="font-bold text-white">Está disposto a aprender e aplicar</span> o método ARI na prática, indo além da teoria.
+              </p>
+            </div>
+
+            <div className="p-3 lg:p-6 rounded-lg hover-scale" style={{ background: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.06) 0%, transparent 55%), #09090b", border: "1px solid rgba(255,255,255,0.12)" }}>
+              <div className="mb-3 w-7 h-7 lg:w-10 lg:h-10 rounded-full border border-white/20 flex items-center justify-center" style={{ background: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.18) 0%, transparent 65%)" }}>
+                <X className="w-3 h-3 lg:w-5 lg:h-5" style={{ color: "var(--marquee-blue)" }} />
+              </div>
+              <p className="text-gray-300 text-xs lg:text-base">
+                <span className="font-bold text-white">Entende que investimento sério</span> requer comprometimento e análise técnica — e está pronto para isso.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative z-10 flex justify-center mt-10">
+          <GarantirVagaBtn />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+============================== valor.tsx ==============================
+(Card de preço com a borda azul girando — .border-spin-blue)
+
+import GarantirVagaBtn from "./garantir-vaga-btn";
+import { ShieldCheck } from "lucide-react";
+
+export default function Valor() {
+  return (
+    <section className="relative py-16 lg:py-24 px-6 font-poppins text-white overflow-hidden">
+      <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[700px] h-[900px] pointer-events-none z-0" style={{ background: "radial-gradient(ellipse at right center, rgba(37,99,235,0.3) 0%, rgba(30,58,138,0.1) 40%, transparent 70%)", filter: "blur(40px)" }} />
+      <div className="max-w-xl mx-auto relative z-10">
+        <div className="border-spin-blue rounded-xl hover-scale" style={{ padding: "6px" }}>
+          <div className="rounded-xl px-6 pt-6 pb-8 text-center lg:px-24 lg:pt-10 lg:pb-24 relative z-10 bg-zinc-950" style={{ backgroundImage: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 40%, transparent 65%)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)" }}>
+            <div className="mb-6">
+              <p className="text-gray-500 text-6xl line-through font-normal mb-0">R$ 899,90</p>
+              <p className="gradient-text-blue text-4xl lg:text-4xl shine-text font-bold">R$ 89,00</p>
+              <p className="text-gray-400 text-base mt-2">ou 12x de R$ 9,20 no cartão</p>
+            </div>
+
+            <GarantirVagaBtn className="mb-4" />
+
+            <p className="text-gray-500 text-xs text-center mb-8">
+              Pagamento via Pix ou cartão de crédito · Acesso enviado por e-mail após confirmação
+            </p>
+
+            <div className="border-t border-white/10 pt-6 flex gap-4">
+              <ShieldCheck className="w-6 h-6 shrink-0 mt-1" style={{ color: "var(--marquee-blue)" }} />
+              <div className="text-left">
+                <p className="text-white font-semibold text-sm mb-1">7 dias de garantia total.</p>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Se após a primeira aula você sentir que o conteúdo não é para o seu momento como investidor, basta enviar um e-mail e devolvemos 100% do valor. Sem perguntas, sem burocracia.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+============================ perguntas.tsx ============================
+(FAQ acordeão em 2 colunas; item aberto fica com gradiente azul)
+
+"use client";
+import { useState } from "react";
+import GarantirVagaBtn from "./garantir-vaga-btn";
+
+const faqItems = [
+  {
+    pergunta: "O que exatamente vou aprender?",
+    resposta: "Fabhricio vai abrir ao vivo o método completo: como avaliar um empreendimento no litoral catarinense, como estruturar o aporte, como acompanhar o ciclo e como funciona a distribuição dos retornos. É processo real — não teoria genérica.",
+    lado: "esquerda",
+  },
+  {
+    pergunta: "Preciso ter experiência em mercado imobiliário?",
+    resposta: "Não. A Imersão é estruturada para investidores com capital disponível que ainda não operam em incorporação. Você aprende o método do início, com linguagem direta e aplicação prática.",
+    lado: "esquerda",
+  },
+  {
+    pergunta: "E se eu não puder participar de uma das noites ao vivo?",
+    resposta: "Recomendamos a presença ao vivo, especialmente no Q&A do último dia. Caso não consiga, as gravações ficam disponíveis por 30 dias.",
+    lado: "direita",
+  },
+  {
+    pergunta: "Por que a Imersão é paga?",
+    resposta: "Porque entregamos o método real e ferramentas próprias testadas — como a planilha e o checklist — que usamos nas nossas próprias incorporações. A inscrição paga garante que teremos apenas investidores comprometidos e qualificados.",
+    lado: "direita",
+  },
+];
+
+function FaqItem({ pergunta, resposta }: { pergunta: string; resposta: string }) {
+  const [aberto, setAberto] = useState(false);
+
+  return (
+    <div
+      className="rounded-lg mb-3 overflow-hidden hover-scale"
+      style={aberto
+        ? { background: "linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #60a5fa 100%)" }
+        : { background: "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.06) 0%, transparent 55%), #09090b", border: "1px solid rgba(255,255,255,0.12)" }
+      }
+    >
+      <button
+        type="button"
+        onClick={() => setAberto(a => !a)}
+        className="w-full flex items-center justify-between px-5 py-4 text-left text-white font-semibold text-sm md:text-base touch-manipulation"
+      >
+        <span>{pergunta}</span>
+        <span className="text-xl font-light ml-4">{aberto ? "−" : "+"}</span>
+      </button>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateRows: aberto ? "1fr" : "0fr",
+          transition: "grid-template-rows 0.35s ease",
+        }}
+      >
+        <div className="overflow-hidden">
+          <div className="px-5 pb-5 text-white/90 text-sm leading-relaxed">
+            {resposta}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function Perguntas() {
+  const esquerda = faqItems.filter((i) => i.lado === "esquerda");
+  const direita = faqItems.filter((i) => i.lado === "direita");
+
+  return (
+    <section className="text-white py-16 lg:py-24 px-6 font-poppins">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-2xl text-center lg:text-4xl font-bold mb-12">
+          Perguntas frequentes:
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
+          <div>
+            {esquerda.map((item, i) => (
+              <FaqItem key={i} pergunta={item.pergunta} resposta={item.resposta} />
+            ))}
+          </div>
+          <div>
+            {direita.map((item, i) => (
+              <FaqItem key={i} pergunta={item.pergunta} resposta={item.resposta} />
+            ))}
+          </div>
+        </div>
+
+        <div className="text-center">
+          <p className="text-lg lg:text-2xl font-semibold text-white mb-2">
+            Fabhricio ARI vai estar ao vivo nos dias 26, 27 e 28 de maio.
+          </p>
+          <p className="text-lg lg:text-2xl font-semibold gradient-text-blue mb-8">
+            A pergunta é: você vai estar?
+          </p>
+          <GarantirVagaBtn className="mx-auto" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+============================== footer.tsx =============================
+function WhatsAppIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.827L.057 23.882a.5.5 0 0 0 .611.625l6.218-1.635A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 0 1-5.001-1.374l-.358-.214-3.712.976.992-3.624-.234-.373A9.793 9.793 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+    </svg>
+  );
+}
+
+export default function Footer() {
+  return (
+    <section className="relative bg-black text-white py-16 px-6 text-center font-poppins overflow-hidden border-t border-white/20">
+      <div className="absolute bottom-0 left-0 right-0 h-96 pointer-events-none" style={{ background: "radial-gradient(ellipse 100% 100% at 50% 100%, rgba(37,99,235,0.7) 0%, rgba(30,58,138,0.3) 40%, transparent 70%)" }} />
+      <div className="relative z-10 max-w-xl mx-auto">
+        <p className="text-gray-300 text-lg mb-6">
+          Ainda tem dúvidas? Fale com nossa equipe.
+        </p>
+
+        <a
+          href="https://wa.me/5547991991866?text=Ol%C3%A1!%20tudo%20certo%3F%20cheguei%20aqui%20pelo%20link%20em%20sua%20landing%20page%20e%20gostaria%20de%20me%20informar%20mais%20sobre%20o%20evento%20Imers%C3%A3o%20ARI"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 button text-black font-bold uppercase tracking-widest text-sm px-10 py-4"
+        >
+          <WhatsAppIcon /> QUERO FALAR COM A EQUIPE
+        </a>
+
+        <p className="mt-16 text-gray-600 text-xs">
+          Fabhricio ARI © 2026. Todos os direitos reservados.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+------------------------------------------------------------------------
+7. LEAD MODAL  (SEM webhook SprintHub / SEM checkout Hotmart)
+   app/components/lead-modal.tsx
+------------------------------------------------------------------------
+- Abre automaticamente após 5s OU quando qualquer botão dispara o evento
+  window "open-lead-modal" (disparado por GarantirVagaBtn).
+- O handleSubmit aqui está VAZIO: só mostra a tela de sucesso.
+  Plugue sua integração (API própria, e-mail, checkout, etc.) onde indicado.
+
+"use client";
+import { useEffect, useState } from "react";
+
+export default function LeadModal() {
+  const [open, setOpen] = useState(false);
+  const [form, setForm] = useState({ nome: "", email: "", whatsapp: "" });
+  const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener("open-lead-modal", handler);
+    const timer = setTimeout(() => setOpen(true), 5000);
+    return () => {
+      window.removeEventListener("open-lead-modal", handler);
+      clearTimeout(timer);
+    };
+  }, []);
+
+  function close() {
+    setOpen(false);
+    setSuccess(false);
+    setForm({ nome: "", email: "", whatsapp: "" });
+  }
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    // >>> AQUI vai a sua integração (webhook / checkout / e-mail). <<<
+    // Por enquanto apenas exibe a confirmação:
+    setSuccess(true);
+  }
+
+  if (!open) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[200] flex items-center justify-center p-4 font-montserrat"
+      style={{ background: "rgba(0,0,0,0.85)", backdropFilter: "blur(4px)" }}
+      onClick={e => { if (e.target === e.currentTarget) close(); }}
+    >
+      <div className="w-full max-w-md rounded-xl border border-white/15 bg-zinc-950">
+        <div className="p-8">
+          {success ? (
+            <div className="text-center py-6">
+              <p className="text-white text-2xl font-bold mb-3">Vaga Garantida!</p>
+              <p className="text-gray-400 text-sm leading-relaxed">Em breve você receberá as instruções de acesso no seu e-mail e WhatsApp.</p>
+              <button onClick={close} className="mt-8 border border-white/20 text-white font-bold uppercase tracking-widest px-8 py-3 text-sm rounded-lg hover:bg-white/5 transition-colors">
+                FECHAR
+              </button>
+            </div>
+          ) : (
+            <>
+              <div className="flex justify-between items-start mb-6">
+                <div>
+                  <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">Imersão ARI</p>
+                  <h2 className="text-white text-2xl font-bold leading-tight">Garanta sua vaga</h2>
+                </div>
+                <button onClick={close} className="text-gray-500 hover:text-white transition-colors text-lg leading-none mt-1">✕</button>
+              </div>
+
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <div>
+                  <label className="text-gray-400 text-xs uppercase tracking-wider mb-1.5 block">Nome completo</label>
+                  <input
+                    required
+                    name="nome"
+                    value={form.nome}
+                    onChange={e => setForm(f => ({ ...f, nome: e.target.value }))}
+                    className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-white/30 transition-colors"
+                    placeholder="João Silva"
+                  />
+                </div>
+                <div>
+                  <label className="text-gray-400 text-xs uppercase tracking-wider mb-1.5 block">E-mail</label>
+                  <input
+                    required
+                    name="email"
+                    type="email"
+                    pattern="[\w+\-.%]+@[\w\-.]+\.[A-Za-z]{2,}"
+                    title="Digite um e-mail válido"
+                    value={form.email}
+                    onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                    className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-white/30 transition-colors"
+                    placeholder="joao@email.com"
+                  />
+                </div>
+                <div>
+                  <label className="text-gray-400 text-xs uppercase tracking-wider mb-1.5 block">WhatsApp</label>
+                  <input
+                    required
+                    name="whatsapp"
+                    type="tel"
+                    maxLength={11}
+                    value={form.whatsapp}
+                    onChange={e => setForm(f => ({ ...f, whatsapp: e.target.value }))}
+                    className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-white/30 transition-colors"
+                    placeholder="(48) 9 9999-9999"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full button-sun font-bold uppercase tracking-widest px-8 py-4 text-sm mt-1 rounded-lg"
+                >
+                  GARANTIR MINHA VAGA
+                </button>
+              </form>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+------------------------------------------------------------------------
+8. SCRIPTS EM /public  (necessários p/ o countdown do hero)
+------------------------------------------------------------------------
+
+public/countdown.js  (contador regressivo — ajuste a data alvo):
+(function() {
+  const target = new Date("2026-05-30T09:00:00-03:00").getTime();
+  function updateCountdown() {
+    const now = Date.now();
+    const difference = target - now;
+    const setText = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+    if (difference <= 0) {
+      setText("countdown-days","00"); setText("countdown-hours","00");
+      setText("countdown-minutes","00"); setText("countdown-seconds","00");
+      return;
+    }
+    const days = String(Math.floor(difference / (1000*60*60*24))).padStart(2,"0");
+    const hours = String(Math.floor((difference/(1000*60*60))%24)).padStart(2,"0");
+    const minutes = String(Math.floor((difference/(1000*60))%60)).padStart(2,"0");
+    const seconds = String(Math.floor((difference/1000)%60)).padStart(2,"0");
+    setText("countdown-days",days); setText("countdown-hours",hours);
+    setText("countdown-minutes",minutes); setText("countdown-seconds",seconds);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', updateCountdown);
+  else updateCountdown();
+  setInterval(updateCountdown, 1000);
+})();
+
+public/scroll-effect.js (opcional — faz a barra do countdown "encher"
+de vermelho conforme o scroll; se não usar, pode remover o <Script> dele
+no layout.tsx). Ele anima o background do #countdown-container de
+#000000 -> #dc2626 (linear-gradient wipe da esquerda p/ direita).
+
+------------------------------------------------------------------------
+9. DEPENDÊNCIAS
+------------------------------------------------------------------------
+package.json (essencial):
+  - next, react, react-dom
+  - tailwindcss (v4) + @tailwindcss/postcss
+  - lucide-react
+
+Imagens necessárias em /public (pode trocar pelas suas):
+  herob.webp, fabrhicio.webp, pilar1.webp, pilar2.webp, pilar3.webp,
+  pilar4.webp, icon.png
+
+------------------------------------------------------------------------
+10. RESUMO DO FLUXO DE CTA
+------------------------------------------------------------------------
+Todos os botões "GARANTIR MINHA VAGA" (GarantirVagaBtn) disparam o evento
+window "open-lead-modal" -> o LeadModal escuta esse evento e abre.
+O modal também abre sozinho após 5 segundos.
+No submit, hoje, só troca para a tela de sucesso — sem enviar nada.
+É nesse handleSubmit que você conecta a integração futura.
+========================================================================
+FIM
+========================================================================

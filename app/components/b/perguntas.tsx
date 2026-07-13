@@ -5,7 +5,7 @@ import GarantirVagaBtn from "./garantir-vaga-btn";
 const faqItems = [
   {
     pergunta: "O que exatamente vou aprender?",
-    resposta: "Fabhricio vai abrir ao vivo o método completo: como avaliar um empreendimento no litoral catarinense, como estruturar o aporte, como acompanhar o ciclo e como funciona a distribuição dos retornos. É processo real — não teoria genérica.",
+    resposta: "Fabhricio vai abrir ao vivo o método completo: como avaliar um empreendimento no litoral catarinense, como estruturar o aporte, como acompanhar o ciclo e como funciona a distribuição dos retornos. É processo real, não teoria genérica.",
     lado: "esquerda",
   },
   {
@@ -20,7 +20,7 @@ const faqItems = [
   },
   {
     pergunta: "Por que a Imersão é paga?",
-    resposta: "Porque entregamos o método real e ferramentas próprias testadas — como a planilha e o checklist — que usamos nas nossas próprias incorporações. A inscrição paga garante que teremos apenas investidores comprometidos e qualificados.",
+    resposta: "Porque entregamos o método real e ferramentas próprias testadas (como a planilha e o checklist) que usamos nas nossas próprias incorporações. A inscrição paga garante que teremos apenas investidores comprometidos e qualificados.",
     lado: "direita",
   },
 ];

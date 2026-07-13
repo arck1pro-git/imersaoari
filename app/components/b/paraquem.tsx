@@ -58,7 +58,7 @@ export default function Parequem() {
                 <X className="w-3 h-3 lg:w-5 lg:h-5" style={{ color: "var(--marquee-blue)" }} />
               </div>
               <p className="text-gray-300 text-xs lg:text-base">
-                <span className="font-bold text-white">Entende que investimento sério</span> requer comprometimento e análise técnica — e está pronto para isso.
+                <span className="font-bold text-white">Entende que investimento sério</span> requer comprometimento e análise técnica, e está pronto para isso.
               </p>
             </div>
           </div>

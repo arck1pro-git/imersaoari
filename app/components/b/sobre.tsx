@@ -91,7 +91,7 @@ function MobileSobre() {
 export default function Sobre() {
   return (
     <section className="relative py-16 lg:py-24 px-4 font-poppins text-white overflow-hidden">
-      {/* Sombra azul meia lua — apenas lg */}
+      {/* Sombra azul meia lua - apenas lg */}
       <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 w-[700px] h-[900px] pointer-events-none z-0" style={{ background: "radial-gradient(ellipse at left center, rgba(37,99,235,0.3) 0%, rgba(30,58,138,0.1) 40%, transparent 70%)", filter: "blur(40px)" }} />
 
       {/* Desktop */}

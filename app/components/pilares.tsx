@@ -5,25 +5,25 @@ import GarantirVagaBtn from "./garantir-vaga-btn";
 
 const PILARES = [
   {
-    label: "Pilar 1 — Mentalidade de Investidor",
+    label: "Pilar 1: Mentalidade de Investidor",
     title: "Identifique onde você está e transite para o aporte inteligente.",
     body: "Aprenda a transicionar do operacional para o aporte inteligente, focado na multiplicação real do patrimônio.",
     image: "/pilar1.webp",
   },
   {
-    label: "Pilar 2 — Seleção de Oportunidades",
+    label: "Pilar 2: Seleção de Oportunidades",
     title: "Como identificar a incorporação certa para investir?",
     body: "Critérios técnicos e embasados para filtrar empreendimentos viáveis de armadilhas.",
     image: "/pilar2.webp",
   },
   {
-    label: "Pilar 3 — Segurança e Gestão de Patrimônio",
+    label: "Pilar 3: Segurança e Gestão de Patrimônio",
     title: "A arquitetura por trás da segurança jurídica e financeira.",
     body: "Saiba como utilizar SPEs, SCP e garantias reais para assegurar que o patrimônio investido esteja sempre protegido e rentável.",
     image: "/pilar3.webp",
   },
   {
-    label: "Pilar 4 — Ciclo de Saída e Realização de Lucro",
+    label: "Pilar 4: Ciclo de Saída e Realização de Lucro",
     title: "Como otimizar a saída do ativo e capturar a máxima valorização?",
     body: "Entenda como garantir que o retorno sobre o capital (ROE) seja realizado com eficiência, atingindo 100% de retorno em 3 anos.",
     image: "/pilar4.webp",

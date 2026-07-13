@@ -15,14 +15,14 @@ export default function Provasocial() {
       <div className="bg-gray-900 rounded-sm aspect-video flex flex-col items-end justify-end p-4 border border-gray-800">
         <div className="text-left w-full">
           <p className="font-bold text-sm">Ricardo Santos</p>
-          <p className="text-gray-400 text-xs">Investidor em Incorporação — Santa Catarina</p>
+          <p className="text-gray-400 text-xs">Investidor em Incorporação, Santa Catarina</p>
           <p className="gradient-text font-bold text-sm">R$ 50k → R$ 100k em 36 meses</p>
         </div>
       </div>
       <div className="bg-gray-900 rounded-sm aspect-video flex flex-col items-end justify-end p-4 border border-gray-800">
         <div className="text-left w-full">
           <p className="font-bold text-sm">Paula Costa</p>
-          <p className="text-gray-400 text-xs">Corretora de Imóveis — SC</p>
+          <p className="text-gray-400 text-xs">Corretora de Imóveis, SC</p>
           <p className="gradient-text font-bold text-sm">Remuneração mensal de empreendimentos</p>
         </div>
       </div>

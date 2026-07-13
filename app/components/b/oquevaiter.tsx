@@ -13,7 +13,7 @@ const PILARES = [
   {
     label: "Pilar 2",
     title: "Seleção de oportunidades",
-    body: "Critérios técnicos para identificar o empreendimento certo. Como filtrar projetos viáveis de projetos problemáticos — antes de aportar.",
+    body: "Critérios técnicos para identificar o empreendimento certo. Como filtrar projetos viáveis de projetos problemáticos, antes de aportar.",
     image: "/pilar2.webp",
   },
   {
@@ -174,7 +174,7 @@ export default function OqueVaiTer() {
           <span className="gradient-text-blue">nas 3 noites?</span>
         </h2>
         <p className="text-gray-400 text-center max-w-2xl mx-auto font-poppins">
-          Nos 3 dias vamos percorrer os 4 pilares do método ARI — o mesmo processo que uso em cada operação real.
+          Nos 3 dias vamos percorrer os 4 pilares do método ARI, o mesmo processo que uso em cada operação real.
         </p>
       </div>
 

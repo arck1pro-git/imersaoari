@@ -9,8 +9,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
   --animate-marquee: marquee 30s linear infinite;
 }
 
@@ -40,7 +39,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
 
@@ -224,11 +223,10 @@ body {
 }
 
 .button-sun {
-  background: linear-gradient(135deg, #c4a200 0%, #FFDE21 50%, #fff0a0 100%);
-  box-shadow: 0 0 20px rgba(255, 222, 33, 0.5), 0 0 40px rgba(255, 222, 33, 0.2);
+  background: #FFDE21;
   transition: all 0.1s ease;
   cursor: pointer;
-  border-radius: 0 12px 0 12px;
+  border-radius: 9999px;
   color: #000000;
   position: relative;
   overflow: hidden;
@@ -249,8 +247,26 @@ body {
 }
 
 .button-sun:hover {
-  box-shadow: 0 0 30px rgba(255, 222, 33, 0.8), 0 0 60px rgba(255, 222, 33, 0.4);
   transform: scale(1.05);
+}
+
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  animation: lightBeam 5s infinite;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .button-blue {
@@ -291,88 +307,49 @@ body {
   transform: scale(1.07);
 }
 
-/* Saira Font */
-.font-saira {
-  font-family: var(--font-saira);
+/* Liquid glass surfaces */
+.glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 12px 34px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.font-saira-thin {
-  font-family: var(--font-saira);
-  font-weight: 300;
+.glass-card-hover:hover {
+  border-color: rgba(236, 206, 131, 0.35);
+  transform: translateY(-4px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 18px 44px rgba(0, 0, 0, 0.45);
 }
 
-.font-saira-normal {
-  font-family: var(--font-saira);
-  font-weight: 400;
+.glass-chip {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
-.font-saira-bold {
-  font-family: var(--font-saira);
-  font-weight: 700;
-}
-
-/* Cormorant Garamond Font */
-.font-cormorant {
-  font-family: var(--font-cormorant);
-}
-
-.font-cormorant-thin {
-  font-family: var(--font-cormorant);
-  font-weight: 300;
-}
-
-.font-cormorant-normal {
-  font-family: var(--font-cormorant);
-  font-weight: 400;
-}
-
-.font-cormorant-bold {
-  font-family: var(--font-cormorant);
-  font-weight: 700;
-}
-
-/* Poppins Font */
-.font-poppins {
-  font-family: var(--font-poppins);
-}
-
-.font-poppins-thin {
-  font-family: var(--font-poppins);
-  font-weight: 300;
-}
-
-.font-poppins-normal {
-  font-family: var(--font-poppins);
-  font-weight: 400;
-}
-
-.font-poppins-bold {
-  font-family: var(--font-poppins);
-  font-weight: 700;
-}
-
-/* Montserrat Font */
-.font-montserrat {
-  font-family: var(--font-montserrat, 'Montserrat', sans-serif);
-}
-
-.font-montserrat-thin {
-  font-family: var(--font-montserrat);
-  font-weight: 300;
-}
-
-.font-montserrat-normal {
-  font-family: var(--font-montserrat);
-  font-weight: 400;
-}
-
-.font-montserrat-bold {
-  font-family: var(--font-montserrat);
-  font-weight: 700;
+/* Cantos cortados (chanfro) no topo-direito e base-esquerda, com borda só no topo e na esquerda. */
+.cut-card {
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+  border-right-width: 0;
+  border-bottom-width: 0;
 }
 
 /* Carla Sans Font */
 .font-carlasans {
   font-family: var(--font-carlasans), sans-serif;
+}
+
+/* Manrope Font (títulos) - peso 700 */
+.font-manrope {
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 700;
+}
+
+/* Inter Font (textos) - peso 500 */
+.font-inter {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 500;
 }
 
