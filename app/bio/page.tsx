@@ -21,6 +21,13 @@ const ChatIcon = () => (
   </svg>
 );
 
+const GlobeIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="10" />
+    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z" />
+  </svg>
+);
+
 const links = [
   {
     label: "Participe do evento",
@@ -32,6 +39,11 @@ const links = [
     href: "https://typebot.co/arck1pro",
     icon: ChatIcon,
     online: true,
+  },
+  {
+    label: "Acessar o site",
+    href: "https://arck1pro.com.br",
+    icon: GlobeIcon,
   },
 ];
 
