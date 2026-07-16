@@ -353,3 +353,59 @@ body {
   font-weight: 500;
 }
 
+
+/* ===== Página /bio (estilo Linktree) ===== */
+
+/* Zoom lento na foto de fundo (Ken Burns) */
+@keyframes bio-kenburns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.12); }
+}
+.bio-kenburns {
+  animation: bio-kenburns 18s ease-in-out infinite alternate;
+}
+
+/* Entrada suave subindo com fade */
+@keyframes bio-rise {
+  0% { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.bio-rise {
+  opacity: 0;
+  animation: bio-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Brilho sutil pulsando (glow) */
+@keyframes bio-glow {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.7; }
+}
+.bio-glow {
+  animation: bio-glow 4s ease-in-out infinite;
+}
+
+/* Varredura de brilho atravessando o botão */
+@keyframes bio-shine {
+  0% { transform: translateX(-120%) skewX(-20deg); }
+  100% { transform: translateX(220%) skewX(-20deg); }
+}
+.bio-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: translateX(-120%) skewX(-20deg);
+}
+.bio-btn:hover::after {
+  animation: bio-shine 0.9s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bio-kenburns,
+  .bio-glow { animation: none; }
+  .bio-rise { opacity: 1; animation: none; }
+  .bio-btn:hover::after { animation: none; }
+}
