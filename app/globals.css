@@ -409,3 +409,72 @@ body {
   .bio-rise { opacity: 1; animation: none; }
   .bio-btn:hover::after { animation: none; }
 }
+
+/* ===== LPs segmentadas (/a rentabilidade, /b seguranca, /c acesso, /d diversificacao) ===== */
+
+:root {
+  --lp-tinta: #001449;
+  --lp-marinho: #012677;
+  --lp-azul: #005bc5;
+  --lp-ceu: #00b4fc;
+  --lp-ouro: #f7bc05;
+}
+
+/* Malha de pontos sobreposta ao fundo azul */
+.lp-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 0 0;
+}
+
+/* Destaque de texto no ouro da marca */
+.lp-accent-text {
+  background: linear-gradient(135deg, #f7bc05 0%, #ffd95e 48%, #f7bc05 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Corpo de texto sobre o azul tinta */
+.lp-text { color: #ffffff; }
+
+/* CTA no ouro, texto no tinta */
+.lp-btn {
+  background: linear-gradient(135deg, #f7bc05 0%, #ffd95e 50%, #f7bc05 100%);
+  color: var(--lp-tinta);
+  box-shadow: 0 10px 30px rgba(247, 188, 5, 0.28);
+  transition: transform 0.15s ease, box-shadow 0.25s ease;
+}
+
+.lp-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 14px 44px rgba(247, 188, 5, 0.45);
+}
+
+.lp-btn-ghost {
+  border: 1px solid rgba(247, 188, 5, 0.5);
+  color: var(--lp-ouro);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.lp-btn-ghost:hover {
+  background-color: rgba(247, 188, 5, 0.12);
+  border-color: var(--lp-ouro);
+}
+
+/* Entrada suave */
+@keyframes lp-reveal {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.lp-reveal {
+  opacity: 0;
+  animation: lp-reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-reveal { opacity: 1; animation: none; }
+  .lp-btn:hover { transform: none; }
+}
