@@ -158,7 +158,16 @@ function LeadModalInner({ origem }: { origem: string }) {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!API) return;
+    // NEXT_PUBLIC_* é gravada no bundle durante o build: se faltar no ambiente do
+    // deploy, chega aqui como undefined e o envio sumia sem spinner nem aviso.
+    if (!API) {
+      console.error(
+        "[lead-modal] NEXT_PUBLIC_SPRINTHUB_LPS_HOOK_URL ausente no build. " +
+          "Cadastre a variável no provedor de deploy e refaça o build sem cache."
+      );
+      setError(true);
+      return;
+    }
 
     setLoading(true);
     setError(false);
