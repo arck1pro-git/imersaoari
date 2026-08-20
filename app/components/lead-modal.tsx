@@ -1,8 +1,7 @@
 "use client";
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-
-const API = process.env.NEXT_PUBLIC_SPRINTHUB_HOOK_URL!;
+import { SPRINTHUB_HOOK_EVENTO } from "../sprinthub";
 
 function LeadModalInner() {
   const searchParams = useSearchParams();
@@ -32,7 +31,7 @@ function LeadModalInner() {
     const payload: Record<string, string> = { nome: form.nome, email: form.email, whatsapp: "55" + phone };
     if (utm_source) payload.utm_source = utm_source;
     const params = new URLSearchParams(payload);
-    fetch(`${API}&${params.toString()}`, { method: "POST", keepalive: true }).catch(() => {});
+    fetch(`${SPRINTHUB_HOOK_EVENTO}&${params.toString()}`, { method: "POST", keepalive: true }).catch(() => {});
     const hotmart = new URL("https://pay.hotmart.com/X105745330Y");
     hotmart.searchParams.set("bid", "1778252969085");
     hotmart.searchParams.set("name", form.nome);

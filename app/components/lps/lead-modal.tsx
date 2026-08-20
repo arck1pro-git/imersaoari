@@ -4,8 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { X } from "lucide-react";
 import { LP_MODAL_EVENT } from "./events";
 import { claritySet, clarityEvent, clarityUpgrade } from "./clarity";
-
-const API = process.env.NEXT_PUBLIC_SPRINTHUB_LPS_HOOK_URL;
+import { SPRINTHUB_HOOK_LPS } from "../../sprinthub";
 
 /** Parâmetros de link aceitos como identificação do anúncio, em ordem de prioridade. */
 const AD_PARAMS = ["ad", "utm_content", "utm_campaign", "utm_source"];
@@ -158,17 +157,6 @@ function LeadModalInner({ origem }: { origem: string }) {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // NEXT_PUBLIC_* é gravada no bundle durante o build: se faltar no ambiente do
-    // deploy, chega aqui como undefined e o envio sumia sem spinner nem aviso.
-    if (!API) {
-      console.error(
-        "[lead-modal] NEXT_PUBLIC_SPRINTHUB_LPS_HOOK_URL ausente no build. " +
-          "Cadastre a variável no provedor de deploy e refaça o build sem cache."
-      );
-      setError(true);
-      return;
-    }
-
     setLoading(true);
     setError(false);
 
@@ -183,7 +171,7 @@ function LeadModalInner({ origem }: { origem: string }) {
     };
 
     try {
-      const res = await fetch(`${API}&${new URLSearchParams(payload).toString()}`, {
+      const res = await fetch(`${SPRINTHUB_HOOK_LPS}&${new URLSearchParams(payload).toString()}`, {
         method: "POST",
         keepalive: true,
       });
