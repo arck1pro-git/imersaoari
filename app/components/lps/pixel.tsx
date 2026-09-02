@@ -27,6 +27,7 @@ export function pixelLead() {
 /**
  * Pixel da Meta das LPs (/a, /b, /c e /d). O snippet base faz `init` + `PageView`;
  * o `Lead` sai só de `pixelLead()`, depois do envio do formulário com sucesso.
+ * São os dois únicos eventos — nenhum outro é disparado pelo código.
  */
 export default function LpPixel() {
   return (
