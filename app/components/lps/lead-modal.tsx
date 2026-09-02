@@ -180,7 +180,14 @@ function LeadModalInner({ origem }: { origem: string }) {
       claritySet("lead", "sim");
       clarityEvent("lead_enviado");
       clarityUpgrade("lead_enviado");
-      pixelLead();
+      pixelLead({
+        nome: form.nome,
+        email: form.email,
+        telefone: form.telefone,
+        origem,
+        capital: form.valor,
+        modalidade: form.modalidade,
+      });
       setSuccess(true);
     } catch {
       setError(true);
