@@ -3,6 +3,7 @@ import { LpBackground } from "../components/lps/shell";
 import { LpHero, LpTexto } from "../components/lps/sections";
 import LpLeadModal from "../components/lps/lead-modal";
 import LpClarity from "../components/lps/clarity";
+import LpPixel from "../components/lps/pixel";
 
 export const metadata: Metadata = {
   title: "Novo acesso | ARI — Ativo de Renda Imobiliária",
@@ -60,6 +61,7 @@ export default function PageC() {
 
       <LpLeadModal origem="lp-c-acesso" />
       <LpClarity lp="lp-c-acesso" />
+      <LpPixel />
     </>
   );
 }

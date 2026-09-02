@@ -3,6 +3,7 @@ import { LpBackground } from "../components/lps/shell";
 import { LpHero, LpTexto } from "../components/lps/sections";
 import LpLeadModal from "../components/lps/lead-modal";
 import LpClarity from "../components/lps/clarity";
+import LpPixel from "../components/lps/pixel";
 
 export const metadata: Metadata = {
   title: "Rentabilidade | ARI — Ativo de Renda Imobiliária",
@@ -61,6 +62,7 @@ export default function PageA() {
 
       <LpLeadModal origem="lp-a-rentabilidade" />
       <LpClarity lp="lp-a-rentabilidade" />
+      <LpPixel />
     </>
   );
 }

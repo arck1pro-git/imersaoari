@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { X } from "lucide-react";
 import { LP_MODAL_EVENT } from "./events";
 import { claritySet, clarityEvent, clarityUpgrade } from "./clarity";
+import { pixelLead } from "./pixel";
 import { SPRINTHUB_HOOK_LPS } from "../../sprinthub";
 
 /** Parâmetros de link aceitos como identificação do anúncio, em ordem de prioridade. */
@@ -179,6 +180,7 @@ function LeadModalInner({ origem }: { origem: string }) {
       claritySet("lead", "sim");
       clarityEvent("lead_enviado");
       clarityUpgrade("lead_enviado");
+      pixelLead();
       setSuccess(true);
     } catch {
       setError(true);
